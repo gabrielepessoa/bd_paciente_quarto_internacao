@@ -13,6 +13,13 @@ import sistema.pacienteGUI.PacienteGUI;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextPane;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import com.jgoodies.forms.factories.DefaultComponentFactory;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import java.awt.Color;
 
 public class Hospital extends JFrame {
 
@@ -68,7 +75,7 @@ public class Hospital extends JFrame {
 		btnLeito.setBounds(235, 336, 153, 23);
 		contentPane.add(btnLeito);
 		
-		JButton btnInternamento = new JButton("Internamento");
+		JButton btnInternamento = new JButton("");
 		btnInternamento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				InternamentoGUI ig = new InternamentoGUI();
@@ -79,5 +86,12 @@ public class Hospital extends JFrame {
 		ImagensGUI.imagemButton(btnInternamento);
 		btnInternamento.setBounds(56, 22, 332, 285);
 		contentPane.add(btnInternamento);
+		
+		JLabel lblInternamento = DefaultComponentFactory.getInstance().createTitle("*Para internamento clique na imagem");
+		lblInternamento.setForeground(Color.RED);
+		lblInternamento.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		lblInternamento.setHorizontalAlignment(SwingConstants.CENTER);
+		lblInternamento.setBounds(-49, 364, 272, 14);
+		contentPane.add(lblInternamento);
 	}
 }
