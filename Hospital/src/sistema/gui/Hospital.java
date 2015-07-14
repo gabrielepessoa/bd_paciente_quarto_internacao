@@ -1,6 +1,5 @@
 package sistema.gui;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -8,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 
+import sistema.internacaoGUI.InternamentoGUI;
 import sistema.leitoGUI.LeitoGUI;
 import sistema.pacienteGUI.PacienteGUI;
 
@@ -68,6 +68,13 @@ public class Hospital extends JFrame {
 		contentPane.add(btnLeito);
 		
 		JButton btnInternamento = new JButton("Internamento");
+		btnInternamento.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				InternamentoGUI ig = new InternamentoGUI();
+				ig.setVisible(true);
+				dispose();
+			}
+		});
 		btnInternamento.setBounds(158, 196, 115, 23);
 		contentPane.add(btnInternamento);
 	}
