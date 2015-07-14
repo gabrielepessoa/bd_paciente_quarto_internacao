@@ -30,18 +30,18 @@ public class LeitoCadastroGUI extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LeitoCadastroGUI frame = new LeitoCadastroGUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					LeitoCadastroGUI frame = new LeitoCadastroGUI();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	LeitoControl leitoControl=new LeitoControl();
 	private JTextField textFieldNumLeito;
@@ -53,7 +53,7 @@ public class LeitoCadastroGUI extends JFrame {
 	public LeitoCadastroGUI() {
 		setTitle("Cadastro de Paciente");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 409, 329);
+		setBounds(100, 100, 479, 417);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -74,7 +74,7 @@ public class LeitoCadastroGUI extends JFrame {
 				dispose();
 			}
 		});
-		btnCadastrar.setBounds(283, 198, 89, 23);
+		btnCadastrar.setBounds(356, 219, 97, 23);
 		contentPane.add(btnCadastrar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
@@ -83,7 +83,7 @@ public class LeitoCadastroGUI extends JFrame {
 				dispose();
 			}
 		});
-		btnCancelar.setBounds(10, 198, 89, 23);
+		btnCancelar.setBounds(24, 219, 89, 23);
 		contentPane.add(btnCancelar);
 		
 		JButton btnLimpar = new JButton("Limpar");
@@ -94,33 +94,33 @@ public class LeitoCadastroGUI extends JFrame {
 				textFieldTipoLeito.setText("");
 			}
 		});
-		btnLimpar.setBounds(148, 198, 89, 23);
+		btnLimpar.setBounds(198, 219, 89, 23);
 		contentPane.add(btnLimpar);
 		
 		textFieldNumLeito = new JTextField();
-		textFieldNumLeito.setBounds(10, 74, 128, 20);
+		textFieldNumLeito.setBounds(24, 116, 128, 20);
 		contentPane.add(textFieldNumLeito);
 		textFieldNumLeito.setColumns(10);
 		
 		JLabel lblNumeroDeLeito = new JLabel("Numero de Leito:");
-		lblNumeroDeLeito.setBounds(10, 59, 97, 14);
+		lblNumeroDeLeito.setBounds(24, 101, 97, 14);
 		contentPane.add(lblNumeroDeLeito);
 		
 		JLabel lblNumeroDo = new JLabel("Numero de Quarto:");
-		lblNumeroDo.setBounds(183, 60, 115, 14);
+		lblNumeroDo.setBounds(197, 102, 115, 14);
 		contentPane.add(lblNumeroDo);
 		
 		textFieldNumQuarto = new JTextField();
-		textFieldNumQuarto.setBounds(183, 74, 128, 20);
+		textFieldNumQuarto.setBounds(197, 116, 128, 20);
 		contentPane.add(textFieldNumQuarto);
 		textFieldNumQuarto.setColumns(10);
 		
 		JLabel lblTipoDeLeito = new JLabel("Tipo de Leito:");
-		lblTipoDeLeito.setBounds(10, 117, 115, 14);
+		lblTipoDeLeito.setBounds(24, 159, 115, 14);
 		contentPane.add(lblTipoDeLeito);
 		
 		textFieldTipoLeito = new JTextField();
-		textFieldTipoLeito.setBounds(10, 130, 128, 20);
+		textFieldTipoLeito.setBounds(24, 172, 128, 20);
 		contentPane.add(textFieldTipoLeito);
 		textFieldTipoLeito.setColumns(10);
 	}

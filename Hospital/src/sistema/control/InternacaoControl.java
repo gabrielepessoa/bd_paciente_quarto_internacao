@@ -9,7 +9,7 @@ import com.mysql.jdbc.Statement;
 
 public class InternacaoControl {
 
-	public void insereDados(int codPac, int numeroIntern, String dataAlta, String dataBaixa, int numeroLeito) {
+	public void insereDados(String codPac, int numeroIntern, String dataAlta, String dataBaixa, int numeroLeito) {
 		Conexao hospital = new Conexao();
 		try {
 

@@ -38,8 +38,9 @@ public class Hospital extends JFrame {
 	 * Create the frame.
 	 */
 	public Hospital() {
+		setTitle("Hospital");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 479, 417);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -53,7 +54,7 @@ public class Hospital extends JFrame {
 				dispose();
 			}
 		});
-		btnPaciente.setBounds(158, 73, 115, 23);
+		btnPaciente.setBounds(158, 73, 166, 23);
 		contentPane.add(btnPaciente);
 		
 		JButton btnLeito = new JButton("Leito");
@@ -64,7 +65,7 @@ public class Hospital extends JFrame {
 				dispose();
 			}
 		});
-		btnLeito.setBounds(158, 135, 115, 23);
+		btnLeito.setBounds(158, 154, 166, 23);
 		contentPane.add(btnLeito);
 		
 		JButton btnInternamento = new JButton("Internamento");
@@ -75,7 +76,7 @@ public class Hospital extends JFrame {
 				dispose();
 			}
 		});
-		btnInternamento.setBounds(158, 196, 115, 23);
+		btnInternamento.setBounds(158, 229, 166, 23);
 		contentPane.add(btnInternamento);
 	}
 }

@@ -30,7 +30,7 @@ public class PacienteResultConsultaGUI extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -42,7 +42,7 @@ public class PacienteResultConsultaGUI extends JFrame {
 			}
 		});
 	}
-
+*/
 	PacienteControl pacienteControl=new PacienteControl();
 	/**
 	 * Create the frame.
@@ -55,7 +55,7 @@ public class PacienteResultConsultaGUI extends JFrame {
 	public PacienteResultConsultaGUI() {
 		setTitle("Resultado da Consulta");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 409, 329);
+		setBounds(100, 100, 479, 417);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -66,7 +66,7 @@ public class PacienteResultConsultaGUI extends JFrame {
 		contentPane.add(lblNome);
 		
 		JLabel lblCodigoPaciente = new JLabel("Codigo Paciente (CPF):");
-		lblCodigoPaciente.setBounds(169, 124, 124, 14);
+		lblCodigoPaciente.setBounds(222, 124, 124, 14);
 		contentPane.add(lblCodigoPaciente);
 		
 		JLabel lblDataDeNascimento = new JLabel("Data de nascimento:");
@@ -75,13 +75,13 @@ public class PacienteResultConsultaGUI extends JFrame {
 		
 		textFieldCodPaciente = new JTextField();
 		textFieldCodPaciente.setEditable(false);
-		textFieldCodPaciente.setBounds(169, 139, 203, 20);
+		textFieldCodPaciente.setBounds(222, 139, 203, 20);
 		contentPane.add(textFieldCodPaciente);
 		textFieldCodPaciente.setColumns(10);
 		
 		textFieldNome = new JTextField();
 		textFieldNome.setEditable(false);
-		textFieldNome.setBounds(10, 74, 362, 20);
+		textFieldNome.setBounds(10, 74, 415, 20);
 		contentPane.add(textFieldNome);
 		textFieldNome.setColumns(10);
 		
@@ -117,10 +117,10 @@ public class PacienteResultConsultaGUI extends JFrame {
 					public void actionPerformed(ActionEvent e) {
 						pc.AtualizarDados(textFieldCodPaciente.getText(),
 								textFieldNome.getText(), textFieldDataNasc.getText());
+						dispose();
 					}});
 				btnSubmeter.setBounds(184, 216, 89, 23);
 				contentPane.add(btnSubmeter);
-				
 				
 			}
 		});
@@ -129,10 +129,10 @@ public class PacienteResultConsultaGUI extends JFrame {
 	}
 
 	private void resultadoConsulta() {
-		int codPac= Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o CPF do paciente"));
+		String codPac=JOptionPane.showInputDialog(null, "Digite o CPF do paciente");
 		pc.BuscarDados(codPac, paciente);
 		textFieldCodPaciente.setText(paciente.getCodPac());
 		textFieldDataNasc.setText(paciente.getDataNascimento().toString());
-		textFieldNome.setText(paciente.getNomePac().toString());
+		textFieldNome.setText(paciente.getNomePac());
 	}
 }

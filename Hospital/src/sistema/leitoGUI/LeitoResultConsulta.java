@@ -23,7 +23,7 @@ public class LeitoResultConsulta extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -35,7 +35,7 @@ public class LeitoResultConsulta extends JFrame {
 			}
 		});
 	}
-
+*/
 	LeitoControl leitoControl=new LeitoControl();
 	Leito leito = new Leito();
 	
@@ -46,9 +46,9 @@ public class LeitoResultConsulta extends JFrame {
 	 * Create the frame.
 	 */
 	public LeitoResultConsulta() {
-		setTitle("Cadastro de Paciente");
+		setTitle("Cadastro de Leito");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 409, 329);
+		setBounds(100, 100, 479, 417);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -61,31 +61,31 @@ public class LeitoResultConsulta extends JFrame {
 		
 		textFieldNumLeito = new JTextField();
 		textFieldNumLeito.setEditable(false);
-		textFieldNumLeito.setBounds(10, 74, 128, 20);
+		textFieldNumLeito.setBounds(45, 74, 128, 20);
 		contentPane.add(textFieldNumLeito);
 		textFieldNumLeito.setColumns(10);
 		
 		JLabel lblNumeroDeLeito = new JLabel("Numero de Leito:");
-		lblNumeroDeLeito.setBounds(10, 59, 97, 14);
+		lblNumeroDeLeito.setBounds(45, 59, 97, 14);
 		contentPane.add(lblNumeroDeLeito);
 		
 		JLabel lblNumeroDo = new JLabel("Numero de Quarto:");
-		lblNumeroDo.setBounds(183, 60, 115, 14);
+		lblNumeroDo.setBounds(259, 60, 115, 14);
 		contentPane.add(lblNumeroDo);
 		
 		textFieldNumQuarto = new JTextField();
 		textFieldNumQuarto.setEditable(false);
-		textFieldNumQuarto.setBounds(183, 74, 128, 20);
+		textFieldNumQuarto.setBounds(259, 74, 128, 20);
 		contentPane.add(textFieldNumQuarto);
 		textFieldNumQuarto.setColumns(10);
 		
 		JLabel lblTipoDeLeito = new JLabel("Tipo de Leito:");
-		lblTipoDeLeito.setBounds(10, 117, 115, 14);
+		lblTipoDeLeito.setBounds(45, 115, 115, 14);
 		contentPane.add(lblTipoDeLeito);
 		
 		textFieldTipoLeito = new JTextField();
 		textFieldTipoLeito.setEditable(false);
-		textFieldTipoLeito.setBounds(10, 130, 128, 20);
+		textFieldTipoLeito.setBounds(45, 128, 128, 20);
 		contentPane.add(textFieldTipoLeito);
 		textFieldTipoLeito.setColumns(10);
 		

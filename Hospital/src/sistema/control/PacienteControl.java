@@ -76,7 +76,7 @@ public class PacienteControl {
 		return retorno;
 	}
 
-	public void BuscarDados(int codPac, Paciente paciente) {
+	public void BuscarDados(String codPac, Paciente paciente) {
 		Conexao hospital = new Conexao();
 
 		try {
