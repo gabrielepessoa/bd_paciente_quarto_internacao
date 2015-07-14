@@ -16,15 +16,15 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-import sistema.control.InternacaoControl;
+import base.Internamento;
+import sistema.control.InternamentoControl;
 import sistema.control.PacienteControl;
-import sistema.leitoGUI.LeitoGUI;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.text.ParseException;
 
-public class InternacaoCadastroGUI extends JFrame {
+public class InternamentoCadastroGUI extends JFrame {
 
 	private JPanel contentPane;
 
@@ -44,7 +44,7 @@ public class InternacaoCadastroGUI extends JFrame {
 //		});
 //	}
 
-	InternacaoControl ic = new InternacaoControl();
+	InternamentoControl ic = new InternamentoControl();
 	private JTextField textFieldCodPac;
 	private JTextField textFieldCodIntern;
 	private JTextField textFieldDataBaixa;
@@ -53,7 +53,7 @@ public class InternacaoCadastroGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public InternacaoCadastroGUI() {
+	public InternamentoCadastroGUI() {
 		setTitle("Cadastro de Interna\u00E7\u00E3o");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 479, 417);
@@ -65,29 +65,28 @@ public class InternacaoCadastroGUI extends JFrame {
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-	
+				
+				Internamento internamento = new Internamento();
 				String codPac = textFieldCodPac.getText();
 				int numeroIntern = Integer.parseInt(textFieldCodIntern.getText());
 				int numLeito = Integer.parseInt(textFieldNumLeito.getText());
 				String dataBaixa = textFieldDataBaixa.getText();
 				String dataAlta = textFieldDataAlta.getText();
-				ic.insereDados(codPac, numeroIntern, dataBaixa, dataAlta, numLeito);
+				ic.insereDados(codPac, numeroIntern, dataBaixa, dataAlta, numLeito, internamento);
 				dispose();
 			}
 		});
 		btnCadastrar.setBounds(354, 248, 99, 23);
 		contentPane.add(btnCadastrar);
 		
-		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.addActionListener(new ActionListener() {
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				InternamentoGUI i = new InternamentoGUI();
-				i.setVisible(true);
 				dispose();
 			}
 		});
-		btnVoltar.setBounds(10, 248, 89, 23);
-		contentPane.add(btnVoltar);
+		btnCancelar.setBounds(10, 248, 89, 23);
+		contentPane.add(btnCancelar);
 		
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {

@@ -56,7 +56,7 @@ select l.numleito, l.numquarto, l.tipoleito
 from leito as l;
 
 -- consultar internados
-create view internadossistema (CPF, Nome, NumeroInternamento, DataBaixa, DataAlta, NumeroLeito) as
-select i.codpac, p.nomepac, i.numerointern, i.databaixa, i.dataalta, i.numleito
+create view internadossistema (CPF, NumeroInternamento, DataBaixa, DataAlta, NumeroLeito) as
+select i.codpac, i.numerointern, i.databaixa, i.dataalta, i.numleito
 from internamento as i, paciente as p, leito as l
 where i.codpac=p.codpac and l.numleito=i.numleito;
