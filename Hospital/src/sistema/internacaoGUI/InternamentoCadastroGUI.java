@@ -66,13 +66,12 @@ public class InternamentoCadastroGUI extends JFrame {
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				Internamento internamento = new Internamento();
 				String codPac = textFieldCodPac.getText();
 				int numeroIntern = Integer.parseInt(textFieldCodIntern.getText());
 				int numLeito = Integer.parseInt(textFieldNumLeito.getText());
 				String dataBaixa = textFieldDataBaixa.getText();
 				String dataAlta = textFieldDataAlta.getText();
-				ic.insereDados(codPac, numeroIntern, dataBaixa, dataAlta, numLeito, internamento);
+				ic.insereDados(codPac, numeroIntern, dataBaixa, dataAlta, numLeito);
 				dispose();
 			}
 		});

@@ -17,13 +17,13 @@ import com.mysql.jdbc.Statement;
 public class InternamentoControl {
 	Internamento internamento = new Internamento();
 	
-	public void insereDados(String codPac, int numeroIntern, String dataAlta, String dataBaixa, int numeroLeito, Internamento internamento) {
+	public void insereDados(String codPac, int numeroIntern, String dataAlta, String dataBaixa, int numeroLeito) {
 		Conexao hospital = new Conexao();
 		try {
 
 			Connection ExConn = (Connection) hospital.abrirBDConn();
 			Statement stmt = (Statement) ExConn.createStatement();
-			String sSQL = "INSERT INTO hospital.internacao VALUES ('" + codPac+ "','" + numeroIntern + "','" + dataAlta
+			String sSQL = "INSERT INTO hospital.internamento VALUES ('" + codPac+ "','" + numeroIntern + "','" + dataAlta
 																	+ "','" + dataBaixa + "','" + numeroLeito + "');";
 			System.out.println(sSQL);
 			boolean res = stmt.execute(sSQL);
