@@ -54,7 +54,7 @@ public class Hospital extends JFrame {
 				dispose();
 			}
 		});
-		btnPaciente.setBounds(158, 73, 166, 23);
+		btnPaciente.setBounds(56, 336, 153, 23);
 		contentPane.add(btnPaciente);
 		
 		JButton btnLeito = new JButton("Leito");
@@ -65,7 +65,7 @@ public class Hospital extends JFrame {
 				dispose();
 			}
 		});
-		btnLeito.setBounds(158, 154, 166, 23);
+		btnLeito.setBounds(235, 336, 153, 23);
 		contentPane.add(btnLeito);
 		
 		JButton btnInternamento = new JButton("Internamento");
@@ -76,7 +76,8 @@ public class Hospital extends JFrame {
 				dispose();
 			}
 		});
-		btnInternamento.setBounds(158, 229, 166, 23);
+		ImagensGUI.imagemButton(btnInternamento);
+		btnInternamento.setBounds(56, 22, 332, 285);
 		contentPane.add(btnInternamento);
 	}
 }
