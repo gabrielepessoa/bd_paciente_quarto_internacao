@@ -1,6 +1,5 @@
 package sistema.pacienteGUI;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -75,7 +74,7 @@ public class PacienteGUI extends JFrame {
 		JButton btnExcluir = new JButton("Excluir");
 		btnExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 int codPac= Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o CPF do paciente"));
+				 String codPac= JOptionPane.showInputDialog(null, "Digite o CPF do paciente");
 				 pc.ExcluirCliente(codPac);
 			}
 		});

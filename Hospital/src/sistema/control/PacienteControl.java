@@ -11,7 +11,7 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 
 public class PacienteControl {
-	public void insereDados(int codPac, String nome, String dataNascimento) {
+	public void insereDados(String codPac, String nome, String dataNascimento) {
 		Conexao hospital = new Conexao();
 		try {
 
@@ -32,7 +32,7 @@ public class PacienteControl {
 		}
 	}
 
-	public void ExcluirCliente(int codPac) {
+	public void ExcluirCliente(String codPac) {
 		Conexao hospital = new Conexao();
 
 		try {
@@ -41,7 +41,8 @@ public class PacienteControl {
 			Statement stmt = (Statement) ExConn.createStatement();
 			String sSQL = "DELETE FROM hospital.paciente WHERE codpac = "+ codPac + ";";
 			boolean rs = stmt.execute(sSQL);
-			JOptionPane.showMessageDialog(null,(!rs) ? "Dados do paciente excluidos com sucesso.": "Dados do paciente não foram excluidos com sucesso.");
+			JOptionPane.showMessageDialog(null,(!rs) ? "Dados do paciente excluidos com sucesso.": 
+				"Dados do paciente não foram excluidos com sucesso.");
 
 			stmt.close();
 			hospital.fecharBDConn();
@@ -51,7 +52,7 @@ public class PacienteControl {
 		}
 	}
 
-	public String AtualizarDados(int codPac, String nome, String dataNascimento) {
+	public String AtualizarDados(String codPac, String nome, String dataNascimento) {
 		Conexao hospital = new Conexao();
 		String retorno = "erro";
 		int res;
@@ -87,7 +88,7 @@ public class PacienteControl {
 			ResultSet rs = stmt.executeQuery(sSQL);
 
 			while (rs.next()) {
-				paciente.setCodPac(rs.getInt("codpac"));
+				paciente.setCodPac(rs.getString("codpac"));
 				paciente.setNomePac(rs.getString("nomepac"));
 				paciente.setDataNascimento((rs.getDate("datanascpac")));
 			}

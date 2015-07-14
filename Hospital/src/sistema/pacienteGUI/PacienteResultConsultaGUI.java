@@ -115,7 +115,7 @@ public class PacienteResultConsultaGUI extends JFrame {
 				JButton btnSubmeter = new JButton("Submeter");
 				btnSubmeter.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						pc.AtualizarDados(Integer.parseInt(textFieldCodPaciente.getText()),
+						pc.AtualizarDados(textFieldCodPaciente.getText(),
 								textFieldNome.getText(), textFieldDataNasc.getText());
 					}});
 				btnSubmeter.setBounds(184, 216, 89, 23);
@@ -131,7 +131,7 @@ public class PacienteResultConsultaGUI extends JFrame {
 	private void resultadoConsulta() {
 		int codPac= Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o CPF do paciente"));
 		pc.BuscarDados(codPac, paciente);
-		textFieldCodPaciente.setText(Integer.toString(paciente.getCodPac()));
+		textFieldCodPaciente.setText(paciente.getCodPac());
 		textFieldDataNasc.setText(paciente.getDataNascimento().toString());
 		textFieldNome.setText(paciente.getNomePac().toString());
 	}

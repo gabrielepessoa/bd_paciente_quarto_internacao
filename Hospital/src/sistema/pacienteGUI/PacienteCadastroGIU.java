@@ -3,9 +3,12 @@ package sistema.pacienteGUI;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.MaskFormatter;
 import javax.swing.JLabel;
 
 import java.awt.Font;
@@ -17,6 +20,7 @@ import sistema.control.PacienteControl;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.text.ParseException;
 
 public class PacienteCadastroGIU extends JFrame {
 
@@ -71,6 +75,9 @@ public class PacienteCadastroGIU extends JFrame {
 		lblDataDeNascimento.setBounds(10, 124, 105, 14);
 		contentPane.add(lblDataDeNascimento);
 		
+		
+		
+		
 		textFieldCodPaciente = new JTextField();
 		textFieldCodPaciente.setBounds(169, 139, 203, 20);
 		contentPane.add(textFieldCodPaciente);
@@ -89,7 +96,7 @@ public class PacienteCadastroGIU extends JFrame {
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int codPac= Integer.parseInt(textFieldCodPaciente.getText());
+				String codPac= textFieldCodPaciente.getText();
 				String dataNasc=textFieldDataNasc.getText();
 				String nome=textFieldNome.getText();
 				pacienteControl.insereDados(codPac, nome, dataNasc);

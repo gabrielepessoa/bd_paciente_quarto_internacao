@@ -3,13 +3,13 @@ import java.util.Date;
 
 
 public class Paciente {
-	private int codPac;
+	private String codPac;
 	private String nomePac;
 	private Date dataNascimento;
-	public int getCodPac() {
+	public String getCodPac() {
 		return codPac;
 	}
-	public void setCodPac(int codPac) {
+	public void setCodPac(String codPac) {
 		this.codPac = codPac;
 	}
 	public String getNomePac() {
