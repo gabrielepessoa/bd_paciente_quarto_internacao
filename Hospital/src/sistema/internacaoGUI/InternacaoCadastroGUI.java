@@ -18,6 +18,7 @@ import javax.swing.JButton;
 
 import sistema.control.InternacaoControl;
 import sistema.control.PacienteControl;
+import sistema.leitoGUI.LeitoGUI;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -77,14 +78,16 @@ public class InternacaoCadastroGUI extends JFrame {
 		btnCadastrar.setBounds(354, 248, 99, 23);
 		contentPane.add(btnCadastrar);
 		
-		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.addActionListener(new ActionListener() {
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				InternamentoGUI i = new InternamentoGUI();
+				i.setVisible(true);
 				dispose();
 			}
 		});
-		btnCancelar.setBounds(10, 248, 89, 23);
-		contentPane.add(btnCancelar);
+		btnVoltar.setBounds(10, 248, 89, 23);
+		contentPane.add(btnVoltar);
 		
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
