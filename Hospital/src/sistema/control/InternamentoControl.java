@@ -92,6 +92,24 @@ public class InternamentoControl {
 					"Os dados não puderam ser encontrado!!!");
 		}
 	}
+	public void ExcluirInternamento(String codPac, int numeroIntern) {
+		Conexao hospital = new Conexao();
 
+		try {
+
+			Connection ExConn = (Connection) hospital.abrirBDConn();
+			Statement stmt = (Statement) ExConn.createStatement();
+			String sSQL = "DELETE FROM hospital.internamento WHERE codpac = "+ codPac + ", numerointern = " + numeroIntern+";";
+			boolean rs = stmt.execute(sSQL);
+			JOptionPane.showMessageDialog(null,(!rs) ? "Dados do internamento excluidos com sucesso.": 
+				"Dados do internamento não foram excluidos com sucesso.");
+
+			stmt.close();
+			hospital.fecharBDConn();
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null,
+					"Os dados não foram encontrado!!!");
+		}
+	}
 	
 }

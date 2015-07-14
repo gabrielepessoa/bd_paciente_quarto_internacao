@@ -1,25 +1,21 @@
 package sistema.gui;
 
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
 import sistema.internacaoGUI.InternamentoGUI;
 import sistema.leitoGUI.LeitoGUI;
 import sistema.pacienteGUI.PacienteGUI;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextPane;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import com.jgoodies.forms.factories.DefaultComponentFactory;
-import javax.swing.SwingConstants;
-import java.awt.Font;
-import java.awt.Color;
 
 public class Hospital extends JFrame {
 
@@ -87,7 +83,7 @@ public class Hospital extends JFrame {
 		btnInternamento.setBounds(56, 22, 332, 285);
 		contentPane.add(btnInternamento);
 		
-		JLabel lblInternamento = DefaultComponentFactory.getInstance().createTitle("*Para internamento clique na imagem");
+		JLabel lblInternamento = new JLabel("*Para internamento clique na imagem");
 		lblInternamento.setForeground(Color.RED);
 		lblInternamento.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		lblInternamento.setHorizontalAlignment(SwingConstants.CENTER);

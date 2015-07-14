@@ -22,8 +22,8 @@ public class InternamentoGUI extends JFrame {
 
 	private JPanel contentPane;
 	
-	PacienteControl pc=new PacienteControl();
-	Paciente paciente = new Paciente();
+	Internamento internamento=new Internamento();
+	InternamentoControl internamentoControl = new InternamentoControl();
 	/**
 	 * Launch the application.
 	 */
@@ -81,8 +81,10 @@ public class InternamentoGUI extends JFrame {
 		JButton btnExcluir = new JButton("Excluir");
 		btnExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				 int codPac= Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o CPF do paciente"));
-//				 pc.ExcluirCliente(codPac);
+				 String codPac= JOptionPane.showInputDialog(null, "Digite o CPF do paciente");
+				 int numInternamento= Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o numero do internamento"));
+				 internamentoControl.ExcluirInternamento(codPac, numInternamento);
+				 
 			}
 		});
 		btnExcluir.setBounds(157, 205, 166, 23);
@@ -103,6 +105,7 @@ public class InternamentoGUI extends JFrame {
 		btnPacientesInternados.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				internamentoListagem.setVisible(true);
+				dispose();
 			}
 		});
 		btnPacientesInternados.setBounds(157, 269, 166, 23);
