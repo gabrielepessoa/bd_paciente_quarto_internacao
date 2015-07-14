@@ -112,6 +112,9 @@ public class PacienteCadastroGIU extends JFrame {
 				String dataNasc=textFieldDataNasc.getText();
 				String nome=textFieldNome.getText();
 				pacienteControl.insereDados(codPac, nome, dataNasc);
+				
+				PacienteGUI p = new PacienteGUI();
+				p.setVisible(true);
 				dispose();
 			}
 		});
