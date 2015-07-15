@@ -118,7 +118,6 @@ public class PacienteControl {
 			while(st.next()){
 				
 				modelo.addRow(new Object[]{
-						Tabela.getRowCount() + 1,
 						st.getString("CPF"),
 						st.getString("Nome"),
 						st.getDate("DataNascimento"),

@@ -1,4 +1,4 @@
-package sistema.pacienteGUI;
+package sistema.leitoGUI;
 
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -21,15 +21,16 @@ import javax.swing.table.TableColumnModel;
 
 import base.Internamento;
 import sistema.control.InternamentoControl;
+import sistema.control.LeitoControl;
 import sistema.control.PacienteControl;
 
-public class PacienteListagemGUI extends JFrame {
+public class LeitoListagemGUI extends JFrame {
 
 	
-	String[] coluna = {"CPF do Paciente", "Nome do Paciente", "Data de Nascimeto"};	
+	String[] coluna = {"Numero do Leito", "Numero do Quarto", "Tipo do Leito"};	
 	String [][] linhas ={};
 	
-	PacienteControl pc = new PacienteControl();
+	LeitoControl lc = new LeitoControl();
 	
 	private DefaultTableModel tabela = new DefaultTableModel(linhas, coluna);
 	private JScrollPane scroll=null;
@@ -47,10 +48,8 @@ public class PacienteListagemGUI extends JFrame {
 				public void mouseReleased(MouseEvent e){
 					//int i = Tabela.getSelectedRow();
 					//Object x = Tabela.getValueAt(i, 1);
-					//String codigo="";
-					
-				}
-				
+					//String codigo="";		
+				}	
 			});
 		}
 		return Tabela;
@@ -73,17 +72,16 @@ public class PacienteListagemGUI extends JFrame {
 		header.setPreferredSize(new Dimension(200, 25));
 		TableColumnModel modeloDaColuna = Tabela.getColumnModel();
 		
-		modeloDaColuna.getColumn(0).setPreferredWidth(120);//cpf
-		modeloDaColuna.getColumn(1).setPreferredWidth(250); //nome
-		modeloDaColuna.getColumn(2).setPreferredWidth(190);//data nacimento
-
+		modeloDaColuna.getColumn(0).setPreferredWidth(120);//numquarto
+		modeloDaColuna.getColumn(1).setPreferredWidth(250); //numleito
+		modeloDaColuna.getColumn(2).setPreferredWidth(190);//tipo
 		
 	}
 	
 	/**
 	 * Create the frame.
 	 */
-	public PacienteListagemGUI() {
+	public LeitoListagemGUI() {
 		setTitle("Listar Pacientes");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 583, 417);
@@ -97,7 +95,7 @@ public class PacienteListagemGUI extends JFrame {
 		btnAtualizarTabela.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					pc.preencher_tabela(Tabela);
+					lc.preencher_tabela(Tabela);
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -115,8 +113,8 @@ public class PacienteListagemGUI extends JFrame {
 			btnVoltar = new JButton("Voltar");
 			btnVoltar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					PacienteGUI pg = new PacienteGUI();
-					pg.setVisible(true);
+					LeitoGUI lg = new LeitoGUI();
+					lg.setVisible(true);
 					dispose();
 				}
 			});
