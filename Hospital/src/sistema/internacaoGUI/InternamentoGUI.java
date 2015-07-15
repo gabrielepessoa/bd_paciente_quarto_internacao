@@ -1,6 +1,5 @@
 package sistema.internacaoGUI;
 
-import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,11 +9,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import base.Internamento;
-import base.Paciente;
 import sistema.control.InternamentoControl;
-import sistema.control.PacienteControl;
 import sistema.gui.Hospital;
+import base.Internamento;
 
 public class InternamentoGUI extends JFrame {
 
@@ -22,26 +19,6 @@ public class InternamentoGUI extends JFrame {
 
 	Internamento internamento = new Internamento();
 	InternamentoControl internamentoControl = new InternamentoControl();
-	/**
-	 * Launch the application.
-	 */
-
-	// public static void main(String[] args) {
-	// EventQueue.invokeLater(new Runnable() {
-	// public void run() {
-	// try {
-	// InternamentoGUI frame = new InternamentoGUI();
-	// frame.setVisible(true);
-	// } catch (Exception e) {
-	// e.printStackTrace();
-	// }
-	// }
-	// });
-	// }
-
-	/**
-	 * Create the frame.
-	 */
 	InternamentoListagemGUI internamentoListagem = new InternamentoListagemGUI();
 
 	public InternamentoGUI() {
@@ -80,11 +57,14 @@ public class InternamentoGUI extends JFrame {
 		btnExcluir.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				String codPac = JOptionPane.showInputDialog(null, "Digite o CPF do paciente").toString();
-				int numInternamento = Integer
-						.parseInt(JOptionPane.showInputDialog(null, "Digite o numero do internamento"));
+				String codPac = JOptionPane.showInputDialog(null,
+						"Digite o CPF do paciente").toString();
+				int numInternamento = Integer.parseInt(JOptionPane
+						.showInputDialog(null,
+								"Digite o numero do internamento"));
 
-				internamentoControl.ExcluirInternamento(codPac, numInternamento);
+				internamentoControl
+						.ExcluirInternamento(codPac, numInternamento);
 			}
 		});
 		btnExcluir.setBounds(157, 205, 166, 23);

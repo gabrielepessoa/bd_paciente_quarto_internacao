@@ -23,20 +23,8 @@ public class InternamentoResultConsultaGUI extends JFrame {
 	private JTextField textFieldCpf;
 	private JTextField textFieldNumLeito;
 
-	/**
-	 * Launch the application.
-	 */
-	/*
-	 * public static void main(String[] args) { EventQueue.invokeLater(new
-	 * Runnable() { public void run() { try { PacienteResultConsultaGUI frame =
-	 * new PacienteResultConsultaGUI(); frame.setVisible(true); } catch
-	 * (Exception e) { e.printStackTrace(); } } }); }
-	 */
+	
 	PacienteControl pacienteControl = new PacienteControl();
-	/**
-	 * Create the frame.
-	 */
-
 	InternamentoControl ic = new InternamentoControl();
 	Internamento internamento = new Internamento();
 	
@@ -48,13 +36,11 @@ public class InternamentoResultConsultaGUI extends JFrame {
 		String codPac = JOptionPane.showInputDialog(null, "Digite o CPF do paciente com apenas números:");
 		int numeroIntern = Integer
 				.parseInt(JOptionPane.showInputDialog(null, "Digite o número do internamento com apenas números:"));
+		
 		ic.BuscarDadosResultInternamento(codPac, numeroIntern, internamento);
 		textFieldCpf.setText(internamento.getCodPaciente());
-		//System.out.println(Integer.toString(internamento.getNumeroInternamento()));
-
 		textFieldnumIntern.setText(Integer.toString(internamento.getNumeroInternamento()));
 		textFieldDataBaixa.setText(internamento.getDataBaixa().toString());
-		//System.out.println(internamento.getDataAlta().toString());
 		textFieldDataAlta.setText(internamento.getDataAlta().toString());
 		textFieldNumLeito.setText(Integer.toString(internamento.getNumLeito()));
 	}

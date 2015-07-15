@@ -55,12 +55,12 @@ create view pacientessistema (CPF, Nome, DataNascimento) as
 select p.codpac, p.nomepac, p.datanascpac
 from paciente as p;                     
 
--- listar todos os sistemas
+-- listar todos os leitos
 create view leitossistema (NumeroLeito, NumeroQuarto, TipoLeito) as
 select l.numleito, l.numquarto, l.tipoleito
 from leito as l;
 
--- consultar internados
+-- listar todos internados
 create view internadossistema (CPF, NumeroInternamento, DataBaixa, DataAlta, NumeroLeito) as
 select i.codpac, i.numerointern, i.databaixa, i.dataalta, i.numleito
 from internamento as i, paciente as p, leito as l

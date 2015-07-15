@@ -1,6 +1,5 @@
 package sistema.pacienteGUI;
 
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
@@ -20,12 +19,9 @@ import sistema.control.PacienteControl;
 public class PacienteCadastroGIU extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textFieldCodPaciente;
 	private JTextField textFieldNome;
-	private JTextField textFieldDataNasc;
 
-
-	PacienteControl pacienteControl=new PacienteControl();
+	PacienteControl pacienteControl = new PacienteControl();
 
 	public PacienteCadastroGIU() {
 		setTitle("Cadastro de Paciente");
@@ -35,48 +31,36 @@ public class PacienteCadastroGIU extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setBounds(10, 59, 46, 14);
 		contentPane.add(lblNome);
-		
+
 		JLabel lblCodigoPaciente = new JLabel("Codigo Paciente (CPF):");
 		lblCodigoPaciente.setBounds(230, 124, 177, 14);
 		contentPane.add(lblCodigoPaciente);
-		
+
 		JLabel lblDataDeNascimento = new JLabel("Data de nascimento:");
 		lblDataDeNascimento.setBounds(10, 124, 163, 14);
 		contentPane.add(lblDataDeNascimento);
-		
-		MaskFormatter mascaraCpf = null;
-		try {
-			mascaraCpf = new MaskFormatter("###########");
-			mascaraCpf.setPlaceholderCharacter('_');
 
-		} catch (ParseException e1) {
-			JOptionPane.showMessageDialog(null, "Digite um CPF válido!" + e1.getMessage(), "ERROR", 0);
-		}
-		JFormattedTextField textFieldCodPaciente = new JFormattedTextField(mascaraCpf);
-		textFieldCodPaciente.setBounds(230, 139, 203, 20);
-		contentPane.add(textFieldCodPaciente);
-		
-		
+		JFormattedTextField textFieldCodPaciente = cpfMascara();
+		JFormattedTextField textFieldDataNasc = dataNascMascara();
+
 		textFieldNome = new JTextField();
 		textFieldNome.setBounds(10, 74, 423, 20);
 		contentPane.add(textFieldNome);
 		textFieldNome.setColumns(10);
-		
-		JFormattedTextField textFieldDataNasc = dataNascMascara();
-		
+
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
-			
+
 			public void actionPerformed(ActionEvent e) {
-				String codPac= textFieldCodPaciente.getText();
-				String dataNasc=textFieldDataNasc.getText();
-				String nome=textFieldNome.getText();
+				String codPac = textFieldCodPaciente.getText();
+				String dataNasc = textFieldDataNasc.getText();
+				String nome = textFieldNome.getText();
 				pacienteControl.insereDados(codPac, nome, dataNasc);
-				
+
 				PacienteGUI p = new PacienteGUI();
 				p.setVisible(true);
 				dispose();
@@ -84,7 +68,7 @@ public class PacienteCadastroGIU extends JFrame {
 		});
 		btnCadastrar.setBounds(328, 198, 105, 23);
 		contentPane.add(btnCadastrar);
-		
+
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -95,7 +79,7 @@ public class PacienteCadastroGIU extends JFrame {
 		});
 		btnVoltar.setBounds(10, 198, 105, 23);
 		contentPane.add(btnVoltar);
-		
+
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -108,6 +92,23 @@ public class PacienteCadastroGIU extends JFrame {
 		contentPane.add(btnLimpar);
 	}
 
+	private JFormattedTextField cpfMascara() {
+		MaskFormatter mascaraCpf = null;
+		try {
+			mascaraCpf = new MaskFormatter("###########");
+			mascaraCpf.setPlaceholderCharacter('_');
+
+		} catch (ParseException e1) {
+			JOptionPane.showMessageDialog(null,
+					"Digite um CPF válido!" + e1.getMessage(), "ERROR", 0);
+		}
+		JFormattedTextField textFieldCodPaciente = new JFormattedTextField(
+				mascaraCpf);
+		textFieldCodPaciente.setBounds(230, 139, 203, 20);
+		contentPane.add(textFieldCodPaciente);
+		return textFieldCodPaciente;
+	}
+
 	private JFormattedTextField dataNascMascara() {
 		MaskFormatter mascaraData = null;
 		try {
@@ -115,9 +116,11 @@ public class PacienteCadastroGIU extends JFrame {
 			mascaraData.setPlaceholderCharacter('_');
 
 		} catch (ParseException e1) {
-			JOptionPane.showMessageDialog(null, "Digite uma data válido!" + e1.getMessage(), "ERROR", 0);
+			JOptionPane.showMessageDialog(null,
+					"Digite uma data válido!" + e1.getMessage(), "ERROR", 0);
 		}
-		JFormattedTextField textFieldDataNasc = new JFormattedTextField(mascaraData);
+		JFormattedTextField textFieldDataNasc = new JFormattedTextField(
+				mascaraData);
 		textFieldDataNasc.setBounds(10, 139, 163, 20);
 		contentPane.add(textFieldDataNasc);
 		return textFieldDataNasc;

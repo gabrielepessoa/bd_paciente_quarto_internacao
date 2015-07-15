@@ -1,7 +1,6 @@
 package sistema.pacienteGUI;
 
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,45 +18,42 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumnModel;
 
-import base.Internamento;
-import sistema.control.InternamentoControl;
 import sistema.control.PacienteControl;
 
 public class PacienteListagemGUI extends JFrame {
 
-	
-	String[] coluna = {"CPF do Paciente", "Nome do Paciente", "Data de Nascimeto"};	
-	String [][] linhas ={};
-	
+	String[] coluna = { "CPF do Paciente", "Nome do Paciente",
+			"Data de Nascimeto" };
+	String[][] linhas = {};
+
 	PacienteControl pc = new PacienteControl();
-	
+
 	private DefaultTableModel tabela = new DefaultTableModel(linhas, coluna);
-	private JScrollPane scroll=null;
-	private JTable Tabela=null; 
-	
+	private JScrollPane scroll = null;
+	private JTable Tabela = null;
+
 	private JPanel contentPane;
 	private JButton btnVoltar;
 
-	
 	public JTable getTabela() {
-		if(Tabela==null){
+		if (Tabela == null) {
 			Tabela = new JTable(tabela);
 			Tabela.addMouseListener(new MouseAdapter() {
-				@Override 
-				public void mouseReleased(MouseEvent e){
-					//int i = Tabela.getSelectedRow();
-					//Object x = Tabela.getValueAt(i, 1);
-					//String codigo="";
-					
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					// int i = Tabela.getSelectedRow();
+					// Object x = Tabela.getValueAt(i, 1);
+					// String codigo="";
+
 				}
-				
+
 			});
 		}
 		return Tabela;
 	}
-	
-	private JScrollPane getScrool(){
-		if(scroll==null){
+
+	private JScrollPane getScrool() {
+		if (scroll == null) {
 			scroll = new JScrollPane();
 			scroll.setBounds(0, 49, 557, 295);
 			scroll.setBackground(SystemColor.text);
@@ -66,20 +62,19 @@ public class PacienteListagemGUI extends JFrame {
 		}
 		return scroll;
 	}
-	
-	private void defineRenderers(){
+
+	private void defineRenderers() {
 		Tabela.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		JTableHeader header = Tabela.getTableHeader();
 		header.setPreferredSize(new Dimension(200, 25));
 		TableColumnModel modeloDaColuna = Tabela.getColumnModel();
-		
-		modeloDaColuna.getColumn(0).setPreferredWidth(120);//cpf
-		modeloDaColuna.getColumn(1).setPreferredWidth(250); //nome
-		modeloDaColuna.getColumn(2).setPreferredWidth(190);//data nacimento
 
-		
+		modeloDaColuna.getColumn(0).setPreferredWidth(120);// cpf
+		modeloDaColuna.getColumn(1).setPreferredWidth(250); // nome
+		modeloDaColuna.getColumn(2).setPreferredWidth(190);// data nacimento
+
 	}
-	
+
 	/**
 	 * Create the frame.
 	 */
@@ -92,7 +87,7 @@ public class PacienteListagemGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		contentPane.add(getScrool());
-		
+
 		JButton btnAtualizarTabela = new JButton("Atualizar Tabela");
 		btnAtualizarTabela.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -102,14 +97,14 @@ public class PacienteListagemGUI extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
+
 			}
 		});
 		btnAtualizarTabela.setBounds(424, 11, 133, 23);
 		contentPane.add(btnAtualizarTabela);
 		contentPane.add(getBtnVoltar());
 	}
-	
+
 	private JButton getBtnVoltar() {
 		if (btnVoltar == null) {
 			btnVoltar = new JButton("Voltar");

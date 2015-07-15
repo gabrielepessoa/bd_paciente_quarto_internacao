@@ -7,11 +7,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import sistema.conexao.Conexao;
+import base.Internamento;
+
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
-
-import base.Internamento;
-import sistema.conexao.Conexao;
 
 public class InternamentoControl {
 	Internamento internamento = new Internamento();
@@ -93,7 +93,6 @@ public class InternamentoControl {
 				internamento.setDataAlta(rs.getDate("dataalta"));
 				internamento.setNumLeito(rs.getInt("numleito"));
 			}
-			//System.out.println("Passou aqui 3");
 			stmt.close();
 			hospital.fecharBDConn();
 		} catch (Exception e) {

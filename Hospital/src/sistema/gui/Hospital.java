@@ -48,7 +48,7 @@ public class Hospital extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JButton btnPaciente = new JButton("Paciente");
 		btnPaciente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -59,7 +59,7 @@ public class Hospital extends JFrame {
 		});
 		btnPaciente.setBounds(56, 336, 153, 23);
 		contentPane.add(btnPaciente);
-		
+
 		JButton btnLeito = new JButton("Leito");
 		btnLeito.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -70,7 +70,7 @@ public class Hospital extends JFrame {
 		});
 		btnLeito.setBounds(235, 336, 153, 23);
 		contentPane.add(btnLeito);
-		
+
 		JButton btnInternamento = new JButton("");
 		btnInternamento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -82,8 +82,9 @@ public class Hospital extends JFrame {
 		ImagensGUI.imagemButton(btnInternamento);
 		btnInternamento.setBounds(56, 22, 332, 285);
 		contentPane.add(btnInternamento);
-		
-		JLabel lblInternamento = new JLabel("*Para internamento clique na imagem");
+
+		JLabel lblInternamento = new JLabel(
+				"*Para internamento clique na imagem");
 		lblInternamento.setForeground(Color.RED);
 		lblInternamento.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		lblInternamento.setHorizontalAlignment(SwingConstants.CENTER);
