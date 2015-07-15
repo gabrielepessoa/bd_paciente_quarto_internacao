@@ -94,7 +94,7 @@ public class InternamentoCadastroGUI extends JFrame {
 		contentPane.add(lblCodigoDoPaciente);
 		
 		JLabel lblNumeroDoInternamento = new JLabel("Numero do Internamento");
-		lblNumeroDoInternamento.setBounds(169, 83, 135, 14);
+		lblNumeroDoInternamento.setBounds(169, 83, 156, 14);
 		contentPane.add(lblNumeroDoInternamento);
 		
 		

@@ -25,8 +25,8 @@ import sistema.control.InternamentoControl;
 public class InternamentoListagemGUI extends JFrame {
 
 	
-	String[] coluna = {"Codigo do Pacinte", "Numero do Internamento", 
-			"Data de Baixa", "Data de Alta", "Numero do Leito"};	
+	String[] coluna = {"CPF do Paciente", "Número do Internamento", 
+			"Data de Baixa", "Data de Alta", "Número do Leito"};	
 	String [][] linhas ={};
 	
 	InternamentoControl ic = new InternamentoControl();

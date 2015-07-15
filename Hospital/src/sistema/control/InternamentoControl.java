@@ -50,7 +50,7 @@ public class InternamentoControl {
 			while (st.next()) {
 
 				modelo.addRow(
-						new Object[] { Tabela.getRowCount() + 1, st.getString("CPF"), st.getInt("NumeroInternamento"),
+						new Object[] {st.getString("CPF"), st.getInt("NumeroInternamento"),
 								st.getString("DataBaixa"), st.getString("DataAlta"), st.getString("NumeroLeito") });
 			}
 		} catch (Exception erro) {
