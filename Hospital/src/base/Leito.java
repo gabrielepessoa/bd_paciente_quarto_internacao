@@ -3,6 +3,7 @@ package base;
 public class Leito {
 	private int numLeito;
 	private int numQuarto;
+	
 	public int getNumLeito() {
 		return numLeito;
 	}

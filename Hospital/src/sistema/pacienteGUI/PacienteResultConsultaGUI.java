@@ -40,11 +40,11 @@ public class PacienteResultConsultaGUI extends JFrame {
 		contentPane.add(lblNome);
 		
 		JLabel lblCodigoPaciente = new JLabel("Codigo Paciente (CPF):");
-		lblCodigoPaciente.setBounds(222, 124, 124, 14);
+		lblCodigoPaciente.setBounds(222, 124, 176, 14);
 		contentPane.add(lblCodigoPaciente);
 		
 		JLabel lblDataDeNascimento = new JLabel("Data de nascimento:");
-		lblDataDeNascimento.setBounds(10, 124, 105, 14);
+		lblDataDeNascimento.setBounds(10, 124, 160, 14);
 		contentPane.add(lblDataDeNascimento);
 		
 		textFieldCodPaciente = new JTextField();

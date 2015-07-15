@@ -46,11 +46,11 @@ public class PacienteCadastroGIU extends JFrame {
 		contentPane.add(lblNome);
 		
 		JLabel lblCodigoPaciente = new JLabel("Codigo Paciente (CPF):");
-		lblCodigoPaciente.setBounds(230, 124, 124, 14);
+		lblCodigoPaciente.setBounds(230, 124, 177, 14);
 		contentPane.add(lblCodigoPaciente);
 		
 		JLabel lblDataDeNascimento = new JLabel("Data de nascimento:");
-		lblDataDeNascimento.setBounds(10, 124, 105, 14);
+		lblDataDeNascimento.setBounds(10, 124, 163, 14);
 		contentPane.add(lblDataDeNascimento);
 		
 		MaskFormatter mascaraCpf = null;
