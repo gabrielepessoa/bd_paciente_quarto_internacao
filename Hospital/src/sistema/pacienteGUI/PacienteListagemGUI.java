@@ -26,7 +26,7 @@ import sistema.control.PacienteControl;
 public class PacienteListagemGUI extends JFrame {
 
 	
-	String[] coluna = {"CPF", "Nome do Paciente", "Data de Nascimeto"};	
+	String[] coluna = {"CPF do Paciente", "Nome do Paciente", "Data de Nascimeto"};	
 	String [][] linhas ={};
 	
 	PacienteControl pc = new PacienteControl();
