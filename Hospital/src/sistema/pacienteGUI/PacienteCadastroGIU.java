@@ -1,26 +1,21 @@
 package sistema.pacienteGUI;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.ParseException;
 
+import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
-import javax.swing.JLabel;
-
-import java.awt.Font;
-
-import javax.swing.JTextField;
-import javax.swing.JButton;
 
 import sistema.control.PacienteControl;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.text.ParseException;
 
 public class PacienteCadastroGIU extends JFrame {
 
@@ -29,26 +24,9 @@ public class PacienteCadastroGIU extends JFrame {
 	private JTextField textFieldNome;
 	private JTextField textFieldDataNasc;
 
-	/**
-	 * Launch the application.
-	 */
-/*	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PacienteCadastroGIU frame = new PacienteCadastroGIU();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-*/
+
 	PacienteControl pacienteControl=new PacienteControl();
-	/**
-	 * Create the frame.
-	 */
+
 	public PacienteCadastroGIU() {
 		setTitle("Cadastro de Paciente");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -93,17 +71,7 @@ public class PacienteCadastroGIU extends JFrame {
 		contentPane.add(textFieldNome);
 		textFieldNome.setColumns(10);
 		
-		MaskFormatter mascaraData = null;
-		try {
-			mascaraData = new MaskFormatter("####-##-##");
-			mascaraData.setPlaceholderCharacter('_');
-
-		} catch (ParseException e1) {
-			JOptionPane.showMessageDialog(null, "Digite uma data válido!" + e1.getMessage(), "ERROR", 0);
-		}
-		JFormattedTextField textFieldDataNasc = new JFormattedTextField(mascaraData);
-		textFieldDataNasc.setBounds(10, 139, 163, 20);
-		contentPane.add(textFieldDataNasc);
+		JFormattedTextField textFieldDataNasc = dataNascMascara();
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
@@ -140,5 +108,20 @@ public class PacienteCadastroGIU extends JFrame {
 		});
 		btnLimpar.setBounds(178, 198, 99, 23);
 		contentPane.add(btnLimpar);
+	}
+
+	private JFormattedTextField dataNascMascara() {
+		MaskFormatter mascaraData = null;
+		try {
+			mascaraData = new MaskFormatter("####-##-##");
+			mascaraData.setPlaceholderCharacter('_');
+
+		} catch (ParseException e1) {
+			JOptionPane.showMessageDialog(null, "Digite uma data válido!" + e1.getMessage(), "ERROR", 0);
+		}
+		JFormattedTextField textFieldDataNasc = new JFormattedTextField(mascaraData);
+		textFieldDataNasc.setBounds(10, 139, 163, 20);
+		contentPane.add(textFieldDataNasc);
+		return textFieldDataNasc;
 	}
 }

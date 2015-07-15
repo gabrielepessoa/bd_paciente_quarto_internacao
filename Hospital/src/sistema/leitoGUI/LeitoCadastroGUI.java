@@ -28,22 +28,6 @@ public class LeitoCadastroGUI extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					LeitoCadastroGUI frame = new LeitoCadastroGUI();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
 	LeitoControl leitoControl=new LeitoControl();
 	private JTextField textFieldNumLeito;
 	private JTextField textFieldNumQuarto;

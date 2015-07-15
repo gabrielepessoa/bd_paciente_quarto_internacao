@@ -1,8 +1,11 @@
 package sistema.control;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 import sistema.conexao.Conexao;
 import base.Paciente;
@@ -100,5 +103,30 @@ public class PacienteControl {
 					"Os dados não puderam ser encontrado!!!");
 		}
 	}
-
+	
+	public void preencher_tabela(JTable Tabela) throws SQLException{
+		Conexao bd = new Conexao();
+		Connection conn = (Connection) bd.abrirBDConn();
+		try{
+			
+			DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+			modelo.setNumRows(0);
+			
+			Statement statement = (Statement) conn
+					.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			ResultSet st = statement.executeQuery("Select * from hospital.pacientessistema");
+			while(st.next()){
+				
+				modelo.addRow(new Object[]{
+						Tabela.getRowCount() + 1,
+						st.getString("CPF"),
+						st.getString("Nome"),
+						st.getDate("DataNascimento"),
+				});
+			}
+		}
+		catch(Exception erro){
+			JOptionPane.showMessageDialog(null, "Erro ao adicionar na tabela" + erro, "Erro no sistema", JOptionPane.INFORMATION_MESSAGE);
+		}
+	}
 }

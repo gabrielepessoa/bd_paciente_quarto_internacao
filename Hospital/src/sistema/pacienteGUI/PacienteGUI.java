@@ -1,46 +1,25 @@
 package sistema.pacienteGUI;
 
-import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
 
-import base.Paciente;
-import sistema.control.PacienteControl; 
+import sistema.control.PacienteControl;
 import sistema.gui.Hospital;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import base.Paciente;
 
 public class PacienteGUI extends JFrame {
 
 	private JPanel contentPane;
-	
-	/**
-	 * Launch the application.
-	 */
-	
-/*	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PacienteGUI frame = new PacienteGUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
 
-	/**
-	 * Create the frame.
-	 */
 	PacienteControl pc=new PacienteControl();
 	Paciente paciente = new Paciente();
+	PacienteListagemGUI plg = new PacienteListagemGUI();
 	
 	public PacienteGUI() {
 		setTitle("Paciente");
@@ -70,7 +49,7 @@ public class PacienteGUI extends JFrame {
 				dispose();
 			}
 		});
-		btnConsultar.setBounds(159, 158, 165, 23);
+		btnConsultar.setBounds(158, 131, 165, 23);
 		contentPane.add(btnConsultar);
 		
 		JButton btnExcluir = new JButton("Excluir");
@@ -80,7 +59,7 @@ public class PacienteGUI extends JFrame {
 				 pc.ExcluirCliente(codPac);
 			}
 		});
-		btnExcluir.setBounds(158, 244, 165, 23);
+		btnExcluir.setBounds(158, 193, 165, 23);
 		contentPane.add(btnExcluir);
 		
 		JButton btnVoltar = new JButton("Voltar");
@@ -93,6 +72,16 @@ public class PacienteGUI extends JFrame {
 		});
 		btnVoltar.setBounds(364, 344, 89, 23);
 		contentPane.add(btnVoltar);
+		
+		JButton btnNewButtonPacientesCadast = new JButton("Pacientes Cadastrados");
+		btnNewButtonPacientesCadast.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				plg.setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButtonPacientesCadast.setBounds(158, 255, 166, 23);
+		contentPane.add(btnNewButtonPacientesCadast);
 	}
 
 }

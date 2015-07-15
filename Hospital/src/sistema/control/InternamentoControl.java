@@ -99,7 +99,7 @@ public class InternamentoControl {
 
 			Connection ExConn = (Connection) hospital.abrirBDConn();
 			Statement stmt = (Statement) ExConn.createStatement();
-			String sSQL = "DELETE FROM hospital.internamento WHERE codpac = "+ codPac + ", numerointern = " + numeroIntern+";";
+			String sSQL = "DELETE FROM hospital.internamento WHERE codpac = "+ codPac + " and numerointern = " + numeroIntern+";";
 			boolean rs = stmt.execute(sSQL);
 			JOptionPane.showMessageDialog(null,(!rs) ? "Dados do internamento excluidos com sucesso.": 
 				"Dados do internamento não foram excluidos com sucesso.");

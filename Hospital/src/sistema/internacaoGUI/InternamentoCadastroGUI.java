@@ -1,48 +1,24 @@
 package sistema.internacaoGUI;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.ParseException;
 
+import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
-import javax.swing.JLabel;
 
-import java.awt.Font;
-
-import javax.swing.JTextField;
-import javax.swing.JButton;
-
-import base.Internamento;
 import sistema.control.InternamentoControl;
-import sistema.control.PacienteControl;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.text.ParseException;
 
 public class InternamentoCadastroGUI extends JFrame {
 
 	private JPanel contentPane;
-
-//	/**
-//	 * Launch the application.
-//	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					InternacaoCadastroGUI frame = new InternacaoCadastroGUI();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
 
 	InternamentoControl ic = new InternamentoControl();
 	private JTextField textFieldCodPac;
@@ -54,13 +30,23 @@ public class InternamentoCadastroGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public InternamentoCadastroGUI() {
-		setTitle("Cadastro de Interna\u00E7\u00E3o");
+		setTitle("Cadastro de Internamento");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 479, 417);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		JFormattedTextField textFieldCodPac = cpfMascara();
+		JFormattedTextField textFieldDataBaixa = dataBaixaMascara();
+		JFormattedTextField textFieldDataAlta = dataAltaMascara();
+		
+
+		textFieldNumLeito = new JTextField();
+		textFieldNumLeito.setBounds(335, 104, 118, 20);
+		contentPane.add(textFieldNumLeito);
+		textFieldNumLeito.setColumns(10);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
@@ -71,52 +57,39 @@ public class InternamentoCadastroGUI extends JFrame {
 				int numLeito = Integer.parseInt(textFieldNumLeito.getText());
 				String dataBaixa = textFieldDataBaixa.getText();
 				String dataAlta = textFieldDataAlta.getText();
-				ic.insereDados(codPac, numeroIntern, dataBaixa, dataAlta, numLeito);
+				ic.insereDados(codPac, numeroIntern, dataAlta, dataBaixa, numLeito);
 				dispose();
 			}
 		});
 		btnCadastrar.setBounds(354, 248, 99, 23);
 		contentPane.add(btnCadastrar);
 		
-		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.addActionListener(new ActionListener() {
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				InternamentoGUI ig = new InternamentoGUI();
+				ig.setVisible(true);
 				dispose();
 			}
 		});
-		btnCancelar.setBounds(10, 248, 89, 23);
-		contentPane.add(btnCancelar);
+		btnVoltar.setBounds(10, 248, 89, 23);
+		contentPane.add(btnVoltar);
 		
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-//				textFieldCodPaciente.setText("");
-//				textFieldDataNasc.setText("");
-//				textFieldNome.setText("");
+				textFieldCodIntern.setText("");
+				textFieldCodPac.setText("");
+				textFieldDataAlta.setText("");
+				textFieldDataBaixa.setText("");
+				textFieldNumLeito.setText("");
 			}
 		});
 		btnLimpar.setBounds(194, 248, 89, 23);
 		contentPane.add(btnLimpar);
 		
-//		MaskFormatter mascaraCpf = null;
-//		try {
-//			mascaraCpf = new MaskFormatter("###########");
-//			mascaraCpf.setPlaceholderCharacter('_');
-//
-//		} catch (ParseException e1) {
-//			JOptionPane.showMessageDialog(null, "Digite um CPF válido!" + e1.getMessage(), "ERROR", 0);
-//		}
-//		JFormattedTextField textFieldCodPac = new JFormattedTextField(mascaraCpf);
-//		textFieldCodPac.setBounds(10, 104, 123, 20);
-//		contentPane.add(textFieldCodPac);
-//		
-		
-		textFieldCodPac = new JTextField();
-		textFieldCodPac.setBounds(10, 104, 100, 20);
-		contentPane.add(textFieldCodPac);
-		textFieldCodPac.setColumns(10);
-		
-		JLabel lblCodigoDoPaciente = new JLabel("Codigo do Paciente");
+		JLabel lblCodigoDoPaciente = new JLabel("CPF do Paciente");
 		lblCodigoDoPaciente.setBounds(10, 83, 123, 14);
 		contentPane.add(lblCodigoDoPaciente);
 		
@@ -125,54 +98,14 @@ public class InternamentoCadastroGUI extends JFrame {
 		contentPane.add(lblNumeroDoInternamento);
 		
 		
-		
 		textFieldCodIntern = new JTextField();
 		textFieldCodIntern.setBounds(169, 104, 135, 20);
 		contentPane.add(textFieldCodIntern);
 		textFieldCodIntern.setColumns(10);
 		
-//		
-//		MaskFormatter mascaraData = null;
-//		try {
-//			mascaraData = new MaskFormatter("####-##-##");
-//			mascaraData.setPlaceholderCharacter('_');
-//
-//		} catch (ParseException e1) {
-//			JOptionPane.showMessageDialog(null, "Digite uma data válido!" + e1.getMessage(), "ERROR", 0);
-//		}
-//		JFormattedTextField textFieldDataBaixa = new JFormattedTextField(mascaraData);
-//		textFieldDataBaixa.setBounds(10, 169, 123, 20);
-//		contentPane.add(textFieldDataBaixa);
-		
-		textFieldDataBaixa = new JTextField();
-		textFieldDataBaixa.setBounds(10, 169, 103, 20);
-		contentPane.add(textFieldDataBaixa);
-		textFieldDataBaixa.setColumns(10);
-		
-//		MaskFormatter mascaraData1 = null;
-//		try {
-//			mascaraData1 = new MaskFormatter("####-##-##");
-//			mascaraData1.setPlaceholderCharacter('_');
-//
-//		} catch (ParseException e1) {
-//			JOptionPane.showMessageDialog(null, "Digite uma data válido!" + e1.getMessage(), "ERROR", 0);
-//		}
-//		JFormattedTextField textFieldDataAlta = new JFormattedTextField(mascaraData1);
-//		textFieldDataAlta.setBounds(169, 169, 118, 20);
-//		contentPane.add(textFieldDataAlta);
-		
-		textFieldDataAlta = new JTextField();
-		textFieldDataAlta.setBounds(169, 169, 118, 20);
-		contentPane.add(textFieldDataAlta);
-		textFieldDataAlta.setColumns(10);
-
-		textFieldNumLeito = new JTextField();
-		textFieldNumLeito.setBounds(335, 104, 118, 20);
-		contentPane.add(textFieldNumLeito);
-		textFieldNumLeito.setColumns(10);
 		
 		JLabel lblNumeroDoLeito = new JLabel("Numero do Leito");
-		lblNumeroDoLeito.setBounds(335, 83, 89, 14);
+		lblNumeroDoLeito.setBounds(335, 83, 118, 14);
 		contentPane.add(lblNumeroDoLeito);
 		
 		JLabel lblDataBaixa = new JLabel("Data Baixa");
@@ -182,5 +115,51 @@ public class InternamentoCadastroGUI extends JFrame {
 		JLabel lblDaataAlta = new JLabel("Data Alta");
 		lblDaataAlta.setBounds(169, 155, 82, 14);
 		contentPane.add(lblDaataAlta);
+	}
+
+	private JFormattedTextField dataBaixaMascara() {
+		MaskFormatter mascaraDataBaixa = null;
+		try {
+			mascaraDataBaixa = new MaskFormatter("####-##-##");
+			mascaraDataBaixa.setPlaceholderCharacter('_');
+
+		} catch (ParseException e1) {
+			JOptionPane.showMessageDialog(null, "Digite uma data válido!" + e1.getMessage(), "ERROR", 0);
+		}
+		JFormattedTextField textFieldDataBaixa = new JFormattedTextField(mascaraDataBaixa);
+		textFieldDataBaixa.setBounds(10, 169, 123, 20);
+		contentPane.add(textFieldDataBaixa);
+		return textFieldDataBaixa;
+	}
+
+	private JFormattedTextField dataAltaMascara() {
+		MaskFormatter mascaraDataAlta = null;
+		try {
+			mascaraDataAlta = new MaskFormatter("####-##-##");
+			mascaraDataAlta.setPlaceholderCharacter('_');
+
+		} catch (ParseException e1) {
+			JOptionPane.showMessageDialog(null, "Digite uma data válido!" + e1.getMessage(), "ERROR", 0);
+		}
+		JFormattedTextField textFieldDataAlta = new JFormattedTextField(mascaraDataAlta);
+		textFieldDataAlta.setBounds(169, 169, 118, 20);
+		contentPane.add(textFieldDataAlta);
+		return textFieldDataAlta;
+	}
+	
+	// CPF FORMATADO
+	private JFormattedTextField cpfMascara() {
+		MaskFormatter mascaraCpf1 = null;
+		try {
+			mascaraCpf1 = new MaskFormatter("###########");
+			mascaraCpf1.setPlaceholderCharacter('_');
+
+		} catch (ParseException e1) {
+			JOptionPane.showMessageDialog(null, "Digite um CPF válido!" + e1.getMessage(), "ERROR", 0);
+		}
+		JFormattedTextField textFieldCodPac = new JFormattedTextField(mascaraCpf1);
+		textFieldCodPac.setBounds(10, 104, 100, 20);
+		contentPane.add(textFieldCodPac);
+		return textFieldCodPac;
 	}
 }

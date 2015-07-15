@@ -21,27 +21,7 @@ import java.awt.event.ActionEvent;
 public class LeitoGUI extends JFrame {
 
 	private JPanel contentPane;
-	
-	/**
-	 * Launch the application.
-	 */
-	
-/*	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LeitoGUI frame = new LeitoGUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-*/
-	/**
-	 * Create the frame.
-	 */
+
 	
 	LeitoControl lc = new LeitoControl();
 	Leito l = new Leito();

@@ -1,24 +1,18 @@
 package sistema.pacienteGUI;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-
-import java.awt.Font;
-
 import javax.swing.JTextField;
-import javax.swing.JButton;
+import javax.swing.border.EmptyBorder;
 
-import base.Paciente;
 import sistema.control.PacienteControl;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import base.Paciente;
 
 public class PacienteResultConsultaGUI extends JFrame {
 
@@ -26,27 +20,7 @@ public class PacienteResultConsultaGUI extends JFrame {
 	private JTextField textFieldCodPaciente;
 	private JTextField textFieldNome;
 	private JTextField textFieldDataNasc;
-
-	/**
-	 * Launch the application.
-	 */
-/*	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PacienteResultConsultaGUI frame = new PacienteResultConsultaGUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-*/
 	PacienteControl pacienteControl=new PacienteControl();
-	/**
-	 * Create the frame.
-	 */
 	
 	PacienteControl pc=new PacienteControl();
 	Paciente paciente = new Paciente();

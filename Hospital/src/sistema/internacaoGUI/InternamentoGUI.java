@@ -81,8 +81,9 @@ public class InternamentoGUI extends JFrame {
 		JButton btnExcluir = new JButton("Excluir");
 		btnExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 String codPac= JOptionPane.showInputDialog(null, "Digite o CPF do paciente");
+				 String codPac= JOptionPane.showInputDialog(null, "Digite o CPF do paciente").toString();
 				 int numInternamento= Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o numero do internamento"));
+				 
 				 internamentoControl.ExcluirInternamento(codPac, numInternamento); 
 			}
 		});

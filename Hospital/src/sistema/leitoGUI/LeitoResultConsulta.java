@@ -20,22 +20,6 @@ public class LeitoResultConsulta extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-/*	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LeitoResultConsulta frame = new LeitoResultConsulta();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-*/
 	LeitoControl leitoControl=new LeitoControl();
 	Leito leito = new Leito();
 	
@@ -117,6 +101,13 @@ public class LeitoResultConsulta extends JFrame {
 		contentPane.add(btnEditar);
 		
 		JButton button_1 = new JButton("Voltar");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				LeitoGUI lg = new LeitoGUI();
+				lg.setVisible(true);
+				dispose();
+			}
+		});
 		button_1.setBounds(283, 216, 89, 23);
 		contentPane.add(button_1);
 	}
