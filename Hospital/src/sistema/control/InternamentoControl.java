@@ -110,10 +110,10 @@ public class InternamentoControl {
 		try {
 			Connection ExConn = (Connection) hospital.abrirBDConn();
 			Statement stmt = (Statement) ExConn.createStatement();
-			System.out.println("Passou aqui 1");
+			//System.out.println("Passou aqui /gabi");
 			String sSQL = "SELECT codpac, numerointern, databaixa, dataalta, numleito FROM hospital.internamento WHERE codpac = "+ codPac + " and numerointern = " + numeroIntern+";";
 			ResultSet rs = stmt.executeQuery(sSQL);
-			System.out.println("Passou aqui 2");
+			//System.out.println("Passou aqui 2");
 			while (rs.next()) {
 				internamento.setCodPaciente(rs.getString("codpac"));
 				internamento.setNumeroInternamento(rs.getInt("numerointern"));
@@ -121,7 +121,7 @@ public class InternamentoControl {
 				internamento.setDataAlta(rs.getDate("dataalta"));
 				internamento.setNumLeito(rs.getInt("numleito"));
 			}
-			System.out.println("Passou aqui 3");
+			//System.out.println("Passou aqui 3");
 			stmt.close();
 			hospital.fecharBDConn();
 		} catch (Exception e) {
