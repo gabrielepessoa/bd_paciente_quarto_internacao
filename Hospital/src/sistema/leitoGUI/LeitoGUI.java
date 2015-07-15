@@ -43,7 +43,7 @@ public class LeitoGUI extends JFrame {
 				dispose();
 			}
 		});
-		btnCadastrar.setBounds(158, 73, 166, 23);
+		btnCadastrar.setBounds(158, 73, 177, 23);
 		contentPane.add(btnCadastrar);
 		
 		JButton btnConsultar = new JButton("Consultar");
@@ -54,7 +54,7 @@ public class LeitoGUI extends JFrame {
 				dispose();
 			}
 		});
-		btnConsultar.setBounds(158, 154, 165, 23);
+		btnConsultar.setBounds(158, 154, 177, 23);
 		contentPane.add(btnConsultar);
 		
 		JButton btnExcluir = new JButton("Excluir");
@@ -64,7 +64,7 @@ public class LeitoGUI extends JFrame {
 				 lc.ExcluirLeito(numLeito);
 			}
 		});
-		btnExcluir.setBounds(159, 242, 165, 23);
+		btnExcluir.setBounds(158, 234, 176, 23);
 		contentPane.add(btnExcluir);
 		
 		JButton btnVoltar = new JButton("Voltar");

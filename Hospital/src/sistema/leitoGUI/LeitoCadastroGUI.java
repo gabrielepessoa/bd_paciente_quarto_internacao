@@ -78,7 +78,7 @@ public class LeitoCadastroGUI extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				textFieldTipoLeito.setText("");
 				textFieldNumLeito.setText("");
-				textFieldTipoLeito.setText("");
+				textFieldNumQuarto.setText("");
 			}
 		});
 		btnLimpar.setBounds(198, 219, 89, 23);
@@ -103,7 +103,7 @@ public class LeitoCadastroGUI extends JFrame {
 		textFieldNumQuarto.setColumns(10);
 		
 		JLabel lblTipoDeLeito = new JLabel("Tipo de Leito:");
-		lblTipoDeLeito.setBounds(24, 159, 115, 14);
+		lblTipoDeLeito.setBounds(24, 157, 115, 14);
 		contentPane.add(lblTipoDeLeito);
 		
 		textFieldTipoLeito = new JTextField();

@@ -38,7 +38,7 @@ public class PacienteGUI extends JFrame {
 				dispose();
 			}
 		});
-		btnCadastrar.setBounds(158, 73, 166, 23);
+		btnCadastrar.setBounds(158, 73, 177, 23);
 		contentPane.add(btnCadastrar);
 		
 		JButton btnConsultar = new JButton("Consultar");
@@ -49,7 +49,7 @@ public class PacienteGUI extends JFrame {
 				dispose();
 			}
 		});
-		btnConsultar.setBounds(158, 131, 165, 23);
+		btnConsultar.setBounds(158, 131, 177, 23);
 		contentPane.add(btnConsultar);
 		
 		JButton btnExcluir = new JButton("Excluir");
@@ -59,7 +59,7 @@ public class PacienteGUI extends JFrame {
 				 pc.ExcluirCliente(codPac);
 			}
 		});
-		btnExcluir.setBounds(158, 193, 165, 23);
+		btnExcluir.setBounds(158, 193, 177, 23);
 		contentPane.add(btnExcluir);
 		
 		JButton btnVoltar = new JButton("Voltar");
@@ -80,7 +80,7 @@ public class PacienteGUI extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButtonPacientesCadast.setBounds(158, 255, 166, 23);
+		btnNewButtonPacientesCadast.setBounds(158, 255, 177, 23);
 		contentPane.add(btnNewButtonPacientesCadast);
 	}
 
