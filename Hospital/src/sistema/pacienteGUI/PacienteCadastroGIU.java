@@ -36,11 +36,6 @@ public class PacienteCadastroGIU extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblCadastroDePaciente = new JLabel("Cadastro de Paciente");
-		lblCadastroDePaciente.setFont(new Font("Traditional Arabic", Font.PLAIN, 18));
-		lblCadastroDePaciente.setBounds(10, 11, 163, 37);
-		contentPane.add(lblCadastroDePaciente);
-		
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setBounds(10, 59, 46, 14);
 		contentPane.add(lblNome);
@@ -75,6 +70,7 @@ public class PacienteCadastroGIU extends JFrame {
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent e) {
 				String codPac= textFieldCodPaciente.getText();
 				String dataNasc=textFieldDataNasc.getText();
@@ -89,14 +85,16 @@ public class PacienteCadastroGIU extends JFrame {
 		btnCadastrar.setBounds(328, 198, 105, 23);
 		contentPane.add(btnCadastrar);
 		
-		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.addActionListener(new ActionListener() {
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				PacienteGUI pg = new PacienteGUI();
+				pg.setVisible(true);
 				dispose();
 			}
 		});
-		btnCancelar.setBounds(10, 198, 105, 23);
-		contentPane.add(btnCancelar);
+		btnVoltar.setBounds(10, 198, 105, 23);
+		contentPane.add(btnVoltar);
 		
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {

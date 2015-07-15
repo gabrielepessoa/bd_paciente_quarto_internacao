@@ -40,9 +40,9 @@ public class PacienteResultConsultaGUI extends JFrame {
 		lblNome.setBounds(10, 59, 46, 14);
 		contentPane.add(lblNome);
 		
-		JLabel lblCodigoPaciente = new JLabel("Codigo Paciente (CPF):");
-		lblCodigoPaciente.setBounds(222, 124, 176, 14);
-		contentPane.add(lblCodigoPaciente);
+		JLabel lblCPF = new JLabel("CPF:");
+		lblCPF.setBounds(222, 124, 176, 14);
+		contentPane.add(lblCPF);
 		
 		JLabel lblDataDeNascimento = new JLabel("Data de nascimento:");
 		lblDataDeNascimento.setBounds(10, 124, 160, 14);
@@ -76,7 +76,7 @@ public class PacienteResultConsultaGUI extends JFrame {
 				dispose();
 			}
 		});
-		btnVoltar.setBounds(283, 216, 89, 23);
+		btnVoltar.setBounds(336, 216, 89, 23);
 		contentPane.add(btnVoltar);
 		
 		JButton btnEditar = new JButton("Editar");
@@ -97,12 +97,12 @@ public class PacienteResultConsultaGUI extends JFrame {
 						pc.AtualizarDados(textFieldCodPaciente.getText(),
 								textFieldNome.getText(), textFieldDataNasc.getText());
 					}});
-				btnSubmeter.setBounds(184, 216, 89, 23);
+				btnSubmeter.setBounds(184, 216, 100, 23);
 				contentPane.add(btnSubmeter);
 				
 			}
 		});
-		btnEditar.setBounds(184, 216, 89, 23);
+		btnEditar.setBounds(184, 216, 100, 23);
 		contentPane.add(btnEditar);
 		
 
