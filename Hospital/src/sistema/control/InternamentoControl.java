@@ -59,32 +59,6 @@ public class InternamentoControl {
 		}
 	}
 
-	public void BuscarDados(String codPac, int numInternamento, String dataBaixa, String dataAlta, int numLeito) {
-		Conexao hospital = new Conexao();
-
-		try {
-
-			Connection ExConn = (Connection) hospital.abrirBDConn();
-			Statement stmt = (Statement) ExConn.createStatement();
-			String sSQL = "SELECT * FROM hospital.internamento WHERE codpac = " + codPac + "numerointern = "
-					+ numInternamento + "numleito=" + numLeito;
-			ResultSet rs = stmt.executeQuery(sSQL);
-
-			while (rs.next()) {
-				internamento.setCodPaciente(rs.getString("codpac"));
-				internamento.setNumeroInternamento(rs.getInt("numerointern"));
-				internamento.setDataBaixa(rs.getDate("databaixa"));
-				internamento.setDataAlta(rs.getDate("dataalta"));
-				internamento.setNumLeito(rs.getInt("numleito"));
-			}
-
-			stmt.close();
-			hospital.fecharBDConn();
-		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Os dados não puderam ser encontrado!!!");
-		}
-	}
-
 	public void ExcluirInternamento(String codPac, int numeroIntern) {
 		Conexao hospital = new Conexao();
 
@@ -110,10 +84,8 @@ public class InternamentoControl {
 		try {
 			Connection ExConn = (Connection) hospital.abrirBDConn();
 			Statement stmt = (Statement) ExConn.createStatement();
-			//System.out.println("Passou aqui /gabi");
 			String sSQL = "SELECT codpac, numerointern, databaixa, dataalta, numleito FROM hospital.internamento WHERE codpac = "+ codPac + " and numerointern = " + numeroIntern+";";
 			ResultSet rs = stmt.executeQuery(sSQL);
-			//System.out.println("Passou aqui 2");
 			while (rs.next()) {
 				internamento.setCodPaciente(rs.getString("codpac"));
 				internamento.setNumeroInternamento(rs.getInt("numerointern"));
