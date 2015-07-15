@@ -1,5 +1,6 @@
 package sistema.pacienteGUI;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -81,17 +82,20 @@ public class PacienteResultConsultaGUI extends JFrame {
 		JButton btnEditar = new JButton("Editar");
 		btnEditar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textFieldCodPaciente.setEditable(true);
 				textFieldDataNasc.setEditable(true);
 				textFieldNome.setEditable(true);
 				btnEditar.setVisible(false);
+			
+				JLabel lblCamposNoEditaveis = new JLabel("Campos n\u00E3o editaveis s\u00E3o chaves primarias");
+				lblCamposNoEditaveis.setForeground(Color.RED);
+				lblCamposNoEditaveis.setBounds(10, 170, 362, 14);
+				contentPane.add(lblCamposNoEditaveis);
 				
 				JButton btnSubmeter = new JButton("Submeter");
 				btnSubmeter.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						pc.AtualizarDados(textFieldCodPaciente.getText(),
 								textFieldNome.getText(), textFieldDataNasc.getText());
-						dispose();
 					}});
 				btnSubmeter.setBounds(184, 216, 89, 23);
 				contentPane.add(btnSubmeter);
@@ -100,6 +104,8 @@ public class PacienteResultConsultaGUI extends JFrame {
 		});
 		btnEditar.setBounds(184, 216, 89, 23);
 		contentPane.add(btnEditar);
+		
+
 	}
 
 	private void resultadoConsulta() {

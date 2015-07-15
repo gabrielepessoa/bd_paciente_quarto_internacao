@@ -15,6 +15,7 @@ import javax.swing.border.EmptyBorder;
 
 import sistema.control.LeitoControl;
 import base.Leito;
+import java.awt.Color;
 
 public class LeitoResultConsulta extends JFrame {
 
@@ -78,10 +79,14 @@ public class LeitoResultConsulta extends JFrame {
 		JButton btnEditar = new JButton("Editar");
 		btnEditar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textFieldNumLeito.setEditable(true);
 				textFieldNumQuarto.setEditable(true);
 				textFieldTipoLeito.setEditable(true);
 				btnEditar.setVisible(false);
+				
+				JLabel lblCamposNoEditaveis = new JLabel("Campos n\u00E3o editaveis s\u00E3o chaves prim\u00E1rias");
+				lblCamposNoEditaveis.setForeground(Color.RED);
+				lblCamposNoEditaveis.setBounds(45, 170, 301, 14);
+				contentPane.add(lblCamposNoEditaveis);
 				
 				JButton btnSubmeter = new JButton("Submeter");
 				btnSubmeter.addActionListener(new ActionListener() {
@@ -110,6 +115,8 @@ public class LeitoResultConsulta extends JFrame {
 		});
 		button_1.setBounds(283, 216, 89, 23);
 		contentPane.add(button_1);
+		
+		
 	}
 	private void resultadoConsulta() {
 		int numLeito= Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o numero do leito"));

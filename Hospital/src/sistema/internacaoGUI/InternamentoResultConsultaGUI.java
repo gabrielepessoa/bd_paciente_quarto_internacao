@@ -23,6 +23,7 @@ import sistema.pacienteGUI.PacienteGUI;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class InternamentoResultConsultaGUI extends JFrame {
 
@@ -45,12 +46,10 @@ public class InternamentoResultConsultaGUI extends JFrame {
 	 * Create the frame.
 	 */
 
-	PacienteControl pc = new PacienteControl();
 	InternamentoControl ic = new InternamentoControl();
-	Paciente paciente = new Paciente();
-	PacienteGUI pg = new PacienteGUI();
-	Leito leito = new Leito();
 	Internamento internamento = new Internamento();
+	
+	
 	private JTextField textFieldDataAlta;
 	private JTextField textFieldnumIntern;
 
@@ -142,20 +141,26 @@ public class InternamentoResultConsultaGUI extends JFrame {
 		JButton btnEditar = new JButton("Editar");
 		btnEditar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				textFieldDataAlta.setEditable(true);
 				textFieldDataBaixa.setEditable(true);
 				textFieldNumLeito.setEditable(true);
-				textFieldCpf.setEditable(true);
 				btnEditar.setVisible(false);
 
+				JLabel lblCamposNoEditaveis = new JLabel("Campos n\u00E3o editaveis s\u00E3o chaves primarias");
+				lblCamposNoEditaveis.setForeground(Color.RED);
+				lblCamposNoEditaveis.setBounds(10, 252, 267, 14);
+				contentPane.add(lblCamposNoEditaveis);
+				
 				JButton btnSubmeter = new JButton("Submeter");
 				btnSubmeter.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						pc.AtualizarDados(textFieldDataBaixa.getText(), textFieldCpf.getText(),
-								textFieldNumLeito.getText());
-						dispose();
+						ic.AtualizarDados(textFieldCpf.getText(), Integer.parseInt(textFieldnumIntern.getText()), 
+								textFieldDataBaixa.getText(), textFieldDataAlta.getText(), 
+								Integer.parseInt(textFieldNumLeito.getText()));
+						
 					}
 				});
-				btnSubmeter.setBounds(184, 216, 89, 23);
+				btnSubmeter.setBounds(164, 282, 113, 23);
 				contentPane.add(btnSubmeter);
 
 			}
@@ -166,9 +171,8 @@ public class InternamentoResultConsultaGUI extends JFrame {
 		JLabel lblDataAlta = new JLabel("Data de alta:");
 		lblDataAlta.setBounds(10, 196, 176, 14);
 		contentPane.add(lblDataAlta);
+		
+		
 
 	}
-
-	
-
 }

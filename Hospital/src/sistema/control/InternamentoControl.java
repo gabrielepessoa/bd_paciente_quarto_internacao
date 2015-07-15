@@ -128,4 +128,31 @@ public class InternamentoControl {
 			JOptionPane.showMessageDialog(null, "Os dados não puderam ser encontrado!!!");
 		}
 	}
+	
+	public String AtualizarDados(String codPac, int numeroIntern, String dataBaixa, String dataAlta, int numLeito) {
+		Conexao hospital = new Conexao();
+		String retorno = "erro";
+		int res;
+		try {
+
+			Connection ExConn = (Connection) hospital.abrirBDConn();
+			Statement stmt = (Statement) ExConn.createStatement();
+
+			res = stmt.executeUpdate("UPDATE hospital.internamento SET codpac = '"
+					+ codPac + "', numerointern = '" + numeroIntern + "',databaixa = '"
+					+ dataBaixa + "', dataalta = '"+ dataAlta + "', numleito = '"+ numLeito +
+					"'WHERE codpac = "+ codPac + " and numerointern = " + numeroIntern+";");
+			
+			if (res == 1)
+				JOptionPane.showMessageDialog(null,
+						"Os dados  foram atualizados com sucesso!!!");
+			stmt.close();
+			hospital.fecharBDConn();
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null,
+					"Os dados não puderam ser atualizados!!!");
+		}
+		return retorno;
+	}
+
 }
