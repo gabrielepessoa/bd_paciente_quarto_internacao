@@ -97,7 +97,7 @@ public class LeitoResultConsulta extends JFrame {
 						lg.setVisible(true);
 						dispose();
 					}});
-				btnSubmeter.setBounds(184, 216, 89, 23);
+				btnSubmeter.setBounds(184, 216, 100, 23);
 				contentPane.add(btnSubmeter);
 				
 			}

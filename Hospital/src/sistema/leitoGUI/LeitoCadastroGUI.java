@@ -1,28 +1,17 @@
 package sistema.leitoGUI;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.ComboBoxEditor;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
 import sistema.control.LeitoControl;
-import sistema.control.PacienteControl;
-import sistema.gui.Hospital;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
 
 public class LeitoCadastroGUI extends JFrame {
 
