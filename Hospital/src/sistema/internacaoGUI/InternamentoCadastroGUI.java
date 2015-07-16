@@ -41,7 +41,7 @@ public class InternamentoCadastroGUI extends JFrame {
 		JFormattedTextField textFieldDataAlta = dataAltaMascara();
 
 		textFieldNumLeito = new JTextField();
-		textFieldNumLeito.setBounds(335, 104, 118, 20);
+		textFieldNumLeito.setBounds(308, 104, 145, 20);
 		contentPane.add(textFieldNumLeito);
 		textFieldNumLeito.setColumns(10);
 
@@ -88,28 +88,28 @@ public class InternamentoCadastroGUI extends JFrame {
 		contentPane.add(btnLimpar);
 
 		JLabel lblCodigoDoPaciente = new JLabel("CPF do Paciente:");
-		lblCodigoDoPaciente.setBounds(10, 83, 123, 14);
+		lblCodigoDoPaciente.setBounds(10, 83, 127, 14);
 		contentPane.add(lblCodigoDoPaciente);
 
 		JLabel lblNumeroDoInternamento = new JLabel("Numero do Internamento:");
-		lblNumeroDoInternamento.setBounds(169, 83, 156, 14);
+		lblNumeroDoInternamento.setBounds(147, 83, 151, 14);
 		contentPane.add(lblNumeroDoInternamento);
 
 		textFieldCodIntern = new JTextField();
-		textFieldCodIntern.setBounds(169, 104, 135, 20);
+		textFieldCodIntern.setBounds(147, 104, 151, 20);
 		contentPane.add(textFieldCodIntern);
 		textFieldCodIntern.setColumns(10);
 
 		JLabel lblNumeroDoLeito = new JLabel("Numero do Leito:");
-		lblNumeroDoLeito.setBounds(335, 83, 118, 14);
+		lblNumeroDoLeito.setBounds(308, 83, 133, 14);
 		contentPane.add(lblNumeroDoLeito);
 
 		JLabel lblDataBaixa = new JLabel("Data Baixa:");
-		lblDataBaixa.setBounds(10, 155, 82, 14);
+		lblDataBaixa.setBounds(89, 154, 82, 14);
 		contentPane.add(lblDataBaixa);
 
 		JLabel lblDaataAlta = new JLabel("Data Alta:");
-		lblDaataAlta.setBounds(169, 155, 82, 14);
+		lblDaataAlta.setBounds(248, 154, 82, 14);
 		contentPane.add(lblDaataAlta);
 	}
 
@@ -125,7 +125,7 @@ public class InternamentoCadastroGUI extends JFrame {
 		}
 		JFormattedTextField textFieldDataBaixa = new JFormattedTextField(
 				mascaraDataBaixa);
-		textFieldDataBaixa.setBounds(10, 169, 123, 20);
+		textFieldDataBaixa.setBounds(89, 168, 123, 20);
 		contentPane.add(textFieldDataBaixa);
 		return textFieldDataBaixa;
 	}
@@ -142,7 +142,7 @@ public class InternamentoCadastroGUI extends JFrame {
 		}
 		JFormattedTextField textFieldDataAlta = new JFormattedTextField(
 				mascaraDataAlta);
-		textFieldDataAlta.setBounds(169, 169, 118, 20);
+		textFieldDataAlta.setBounds(248, 168, 118, 20);
 		contentPane.add(textFieldDataAlta);
 		return textFieldDataAlta;
 	}
@@ -160,7 +160,7 @@ public class InternamentoCadastroGUI extends JFrame {
 		}
 		JFormattedTextField textFieldCodPac = new JFormattedTextField(
 				mascaraCpf1);
-		textFieldCodPac.setBounds(10, 104, 100, 20);
+		textFieldCodPac.setBounds(10, 104, 127, 20);
 		contentPane.add(textFieldCodPac);
 		return textFieldCodPac;
 	}
