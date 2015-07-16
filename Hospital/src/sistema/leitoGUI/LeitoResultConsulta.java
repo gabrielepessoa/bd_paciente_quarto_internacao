@@ -79,9 +79,9 @@ public class LeitoResultConsulta extends JFrame {
 				btnEditar.setVisible(false);
 
 				JLabel lblCamposNoEditaveis = new JLabel(
-						"Campos n\u00E3o editaveis s\u00E3o chaves prim\u00E1rias");
+						"Campos n\u00E3o edit\u00E1veis s\u00E3o chaves prim\u00E1rias e/ou estrangeiras.");
 				lblCamposNoEditaveis.setForeground(Color.RED);
-				lblCamposNoEditaveis.setBounds(45, 170, 301, 14);
+				lblCamposNoEditaveis.setBounds(45, 159, 408, 14);
 				contentPane.add(lblCamposNoEditaveis);
 
 				JButton btnSubmeter = new JButton("Submeter");
@@ -114,7 +114,7 @@ public class LeitoResultConsulta extends JFrame {
 		});
 		button_1.setBounds(298, 216, 89, 23);
 		contentPane.add(button_1);
-
+		
 	}
 
 	private void resultadoConsulta() {

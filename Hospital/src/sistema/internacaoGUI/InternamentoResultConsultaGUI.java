@@ -79,7 +79,7 @@ public class InternamentoResultConsultaGUI extends JFrame {
 		textFieldDataAlta.setBounds(10, 211, 202, 20);
 		contentPane.add(textFieldDataAlta);
 
-		JLabel labelnumintern = new JLabel("N\u00FAmero do Internamento");
+		JLabel labelnumintern = new JLabel("N\u00FAmero do Internamento:");
 		labelnumintern.setBounds(222, 123, 160, 14);
 		contentPane.add(labelnumintern);
 
@@ -120,12 +120,11 @@ public class InternamentoResultConsultaGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				textFieldDataAlta.setEditable(true);
 				textFieldDataBaixa.setEditable(true);
-				textFieldNumLeito.setEditable(true);
 				btnEditar.setVisible(false);
 
-				JLabel lblCamposNoEditaveis = new JLabel("Campos n\u00E3o editaveis s\u00E3o chaves primarias");
+				JLabel lblCamposNoEditaveis = new JLabel("Campos n\u00E3o edit\u00E1veis s\u00E3o chaves prim\u00E1rias e/ou estrangeiras.");
 				lblCamposNoEditaveis.setForeground(Color.RED);
-				lblCamposNoEditaveis.setBounds(10, 252, 267, 14);
+				lblCamposNoEditaveis.setBounds(10, 242, 388, 14);
 				contentPane.add(lblCamposNoEditaveis);
 				
 				JButton btnSubmeter = new JButton("Submeter");
@@ -144,7 +143,7 @@ public class InternamentoResultConsultaGUI extends JFrame {
 		});
 		btnEditar.setBounds(164, 282, 113, 23);
 		contentPane.add(btnEditar);
-
+		
 		JLabel lblDataAlta = new JLabel("Data de alta:");
 		lblDataAlta.setBounds(10, 196, 176, 14);
 		contentPane.add(lblDataAlta);

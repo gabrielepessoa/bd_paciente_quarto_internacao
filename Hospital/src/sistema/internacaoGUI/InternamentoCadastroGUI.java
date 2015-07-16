@@ -87,11 +87,11 @@ public class InternamentoCadastroGUI extends JFrame {
 		btnLimpar.setBounds(194, 248, 89, 23);
 		contentPane.add(btnLimpar);
 
-		JLabel lblCodigoDoPaciente = new JLabel("CPF do Paciente");
+		JLabel lblCodigoDoPaciente = new JLabel("CPF do Paciente:");
 		lblCodigoDoPaciente.setBounds(10, 83, 123, 14);
 		contentPane.add(lblCodigoDoPaciente);
 
-		JLabel lblNumeroDoInternamento = new JLabel("Numero do Internamento");
+		JLabel lblNumeroDoInternamento = new JLabel("Numero do Internamento:");
 		lblNumeroDoInternamento.setBounds(169, 83, 156, 14);
 		contentPane.add(lblNumeroDoInternamento);
 
@@ -100,15 +100,15 @@ public class InternamentoCadastroGUI extends JFrame {
 		contentPane.add(textFieldCodIntern);
 		textFieldCodIntern.setColumns(10);
 
-		JLabel lblNumeroDoLeito = new JLabel("Numero do Leito");
+		JLabel lblNumeroDoLeito = new JLabel("Numero do Leito:");
 		lblNumeroDoLeito.setBounds(335, 83, 118, 14);
 		contentPane.add(lblNumeroDoLeito);
 
-		JLabel lblDataBaixa = new JLabel("Data Baixa");
+		JLabel lblDataBaixa = new JLabel("Data Baixa:");
 		lblDataBaixa.setBounds(10, 155, 82, 14);
 		contentPane.add(lblDataBaixa);
 
-		JLabel lblDaataAlta = new JLabel("Data Alta");
+		JLabel lblDaataAlta = new JLabel("Data Alta:");
 		lblDaataAlta.setBounds(169, 155, 82, 14);
 		contentPane.add(lblDaataAlta);
 	}

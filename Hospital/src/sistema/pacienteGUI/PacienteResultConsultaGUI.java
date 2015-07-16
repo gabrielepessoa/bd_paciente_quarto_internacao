@@ -87,7 +87,7 @@ public class PacienteResultConsultaGUI extends JFrame {
 				btnEditar.setVisible(false);
 
 				JLabel lblCamposNoEditaveis = new JLabel(
-						"Campos n\u00E3o editaveis s\u00E3o chaves primarias");
+						"Campos n\u00E3o edit\u00E1veis s\u00E3o chaves prim\u00E1rias e/ou estrangeiras.");
 				lblCamposNoEditaveis.setForeground(Color.RED);
 				lblCamposNoEditaveis.setBounds(10, 170, 362, 14);
 				contentPane.add(lblCamposNoEditaveis);
@@ -110,7 +110,6 @@ public class PacienteResultConsultaGUI extends JFrame {
 		});
 		btnEditar.setBounds(184, 216, 100, 23);
 		contentPane.add(btnEditar);
-
 	}
 
 	private void resultadoConsulta() {
