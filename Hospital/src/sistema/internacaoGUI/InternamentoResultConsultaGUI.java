@@ -133,6 +133,9 @@ public class InternamentoResultConsultaGUI extends JFrame {
 						ic.AtualizarDados(textFieldCpf.getText(), Integer.parseInt(textFieldnumIntern.getText()), 
 								textFieldDataBaixa.getText(), textFieldDataAlta.getText(), 
 								Integer.parseInt(textFieldNumLeito.getText()));
+						InternamentoGUI ig = new InternamentoGUI();
+						ig.setVisible(true);
+						dispose();
 						
 					}
 				});
