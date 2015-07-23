@@ -18,7 +18,7 @@ public class ImagensGUI {
 	
 	public static void imagemButton(JButton buton) {
 		try {
-			buton.setIcon(new ImageIcon(new File("imagens/hospital.png").getCanonicalPath()));
+			buton.setIcon(new ImageIcon(new File("src/gui/hospital.png").getCanonicalPath()));
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}

@@ -85,7 +85,6 @@ public class InternamentoListagemGUI extends JFrame {
 		btnAtualizarTabela.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				preencherTabela();
-
 			}
 
 		});
