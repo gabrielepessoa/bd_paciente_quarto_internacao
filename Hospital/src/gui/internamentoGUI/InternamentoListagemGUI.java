@@ -38,16 +38,6 @@ public class InternamentoListagemGUI extends JFrame {
 	public JTable getTabela() {
 		if (Tabela == null) {
 			Tabela = new JTable(tabela);
-			Tabela.addMouseListener(new MouseAdapter() {
-				@Override
-				public void mouseReleased(MouseEvent e) {
-					int i = Tabela.getSelectedRow();
-					Object x = Tabela.getValueAt(i, 1);
-					String codigo = x + "";
-
-				}
-
-			});
 		}
 		return Tabela;
 	}
@@ -70,7 +60,7 @@ public class InternamentoListagemGUI extends JFrame {
 		TableColumnModel modeloDaColuna = Tabela.getColumnModel();
 
 		modeloDaColuna.getColumn(0).setPreferredWidth(120);// cpf
-		modeloDaColuna.getColumn(1).setPreferredWidth(150); // num internamento
+		modeloDaColuna.getColumn(1).setPreferredWidth(148); // num internamento
 		modeloDaColuna.getColumn(2).setPreferredWidth(90);// data
 		modeloDaColuna.getColumn(3).setPreferredWidth(90);// data
 		modeloDaColuna.getColumn(4).setPreferredWidth(106);// leito
@@ -89,18 +79,15 @@ public class InternamentoListagemGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		contentPane.add(getScrool());
-
+		preencherTabela();
+		
 		JButton btnAtualizarTabela = new JButton("Atualizar Tabela");
 		btnAtualizarTabela.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				try {
-					ic.preencher_tabela(Tabela);
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				preencherTabela();
 
 			}
+
 		});
 		btnAtualizarTabela.setBounds(424, 11, 133, 23);
 		contentPane.add(btnAtualizarTabela);
@@ -120,5 +107,13 @@ public class InternamentoListagemGUI extends JFrame {
 			btnVoltar.setBounds(460, 355, 97, 23);
 		}
 		return btnVoltar;
+	}
+	private void preencherTabela() {
+		try {
+			ic.preencher_tabela(Tabela);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

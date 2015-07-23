@@ -38,16 +38,6 @@ public class PacienteListagemGUI extends JFrame {
 	public JTable getTabela() {
 		if (Tabela == null) {
 			Tabela = new JTable(tabela);
-			Tabela.addMouseListener(new MouseAdapter() {
-				@Override
-				public void mouseReleased(MouseEvent e) {
-					// int i = Tabela.getSelectedRow();
-					// Object x = Tabela.getValueAt(i, 1);
-					// String codigo="";
-
-				}
-
-			});
 		}
 		return Tabela;
 	}
@@ -69,9 +59,9 @@ public class PacienteListagemGUI extends JFrame {
 		header.setPreferredSize(new Dimension(200, 25));
 		TableColumnModel modeloDaColuna = Tabela.getColumnModel();
 
-		modeloDaColuna.getColumn(0).setPreferredWidth(120);// cpf
+		modeloDaColuna.getColumn(0).setPreferredWidth(130);// cpf
 		modeloDaColuna.getColumn(1).setPreferredWidth(250); // nome
-		modeloDaColuna.getColumn(2).setPreferredWidth(190);// data nacimento
+		modeloDaColuna.getColumn(2).setPreferredWidth(174);// data nacimento
 
 	}
 
@@ -87,18 +77,14 @@ public class PacienteListagemGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		contentPane.add(getScrool());
-
+		preencherTabela();
+		
 		JButton btnAtualizarTabela = new JButton("Atualizar Tabela");
 		btnAtualizarTabela.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				try {
-					pc.preencher_tabela(Tabela);
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-
+				preencherTabela();
 			}
+
 		});
 		btnAtualizarTabela.setBounds(424, 11, 133, 23);
 		contentPane.add(btnAtualizarTabela);
@@ -118,5 +104,14 @@ public class PacienteListagemGUI extends JFrame {
 			btnVoltar.setBounds(460, 355, 97, 23);
 		}
 		return btnVoltar;
+	}
+	
+	private void preencherTabela() {
+		try {
+			pc.preencher_tabela(Tabela);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
