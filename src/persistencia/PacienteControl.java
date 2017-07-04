@@ -15,16 +15,16 @@ import com.mysql.jdbc.Statement;
 import dominio.Paciente;
 
 public class PacienteControl {
-	public void insereDados(String codPac, String nome, String dataNascimento) {
+	public void insereDados(String cpf, String nome, String dataNascimento) {
 		Conexao hospital = new Conexao();
 		try {
 
 			Connection ExConn = (Connection) hospital.abrirBDConn();
 			Statement stmt = (Statement) ExConn.createStatement();
-			String sSQL = "INSERT INTO hospital.paciente VALUES ('" + codPac+ "','" + nome + "','" + dataNascimento + "');";
+			String sSQL = "INSERT INTO hospital.pacientes VALUES ('" + cpf + "','" + nome + "','" + dataNascimento + "');";
 			System.out.println(sSQL);
 			boolean res = stmt.execute(sSQL);
-
+			
 			JOptionPane.showMessageDialog(null,
 					(!res) ? "Dados inseridos com sucesso!!!" : ""
 							+ "Os dados não puderam ser inseridos!!!");
@@ -36,14 +36,14 @@ public class PacienteControl {
 		}
 	}
 
-	public void ExcluirCliente(String codPac) {
+	public void ExcluirCliente(String cpf) {
 		Conexao hospital = new Conexao();
 
 		try {
 
 			Connection ExConn = (Connection) hospital.abrirBDConn();
 			Statement stmt = (Statement) ExConn.createStatement();
-			String sSQL = "DELETE FROM hospital.paciente WHERE codpac = "+ codPac + ";";
+			String sSQL = "DELETE FROM hospital.pacientes WHERE cpf = "+ cpf + ";";
 			boolean rs = stmt.execute(sSQL);
 			JOptionPane.showMessageDialog(null,(!rs) ? "Dados do paciente excluidos com sucesso.": 
 				"Dados do paciente não foram excluidos com sucesso.");
@@ -56,7 +56,7 @@ public class PacienteControl {
 		}
 	}
 
-	public String AtualizarDados(String codPac, String nome, String dataNascimento) {
+	public String AtualizarDados(String cpf, String nome, String dataNascimento) {
 		Conexao hospital = new Conexao();
 		String retorno = "erro";
 		int res;
@@ -65,9 +65,9 @@ public class PacienteControl {
 			Connection ExConn = (Connection) hospital.abrirBDConn();
 			Statement stmt = (Statement) ExConn.createStatement();
 
-			res = stmt.executeUpdate("UPDATE hospital.paciente SET codpac = '"
-					+ codPac + "', nomepac = '" + nome + "',datanascpac = '"
-					+ dataNascimento + "'WHERE codpac = " + codPac);
+			res = stmt.executeUpdate("UPDATE hospital.pacientes SET cpf = '"
+					+ cpf + "', nome = '" + nome + "', dataNascimento = '"
+					+ dataNascimento + "'WHERE cpf = " + cpf);
 			if (res == 1)
 				JOptionPane.showMessageDialog(null,
 						"Os dados  foram atualizados com sucesso!!!");
@@ -80,21 +80,21 @@ public class PacienteControl {
 		return retorno;
 	}
 
-	public void BuscarDados(String codPac, Paciente paciente) {
+	public void BuscarDados(String cpf, Paciente paciente) {
 		Conexao hospital = new Conexao();
 
 		try {
 
 			Connection ExConn = (Connection) hospital.abrirBDConn();
 			Statement stmt = (Statement) ExConn.createStatement();
-			String sSQL = "SELECT * FROM hospital.paciente WHERE codpac = "
-					+ codPac;
+			String sSQL = "SELECT * FROM hospital.pacientes WHERE cpf = "
+					+ cpf;
 			ResultSet rs = stmt.executeQuery(sSQL);
 
 			while (rs.next()) {
-				paciente.setCodPac(rs.getString("codpac"));
-				paciente.setNomePac(rs.getString("nomepac"));
-				paciente.setDataNascimento((rs.getDate("datanascpac")));
+				paciente.setCpf(rs.getString("cpf"));
+				paciente.setNome(rs.getString("nome"));
+				paciente.setDataNascimento((rs.getDate("dataNascimento")));
 			}
 			
 			stmt.close();
@@ -115,13 +115,13 @@ public class PacienteControl {
 			
 			Statement statement = (Statement) conn
 					.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-			ResultSet st = statement.executeQuery("Select * from hospital.pacientessistema");
+			ResultSet st = statement.executeQuery("Select * from hospital.pacientes");
 			while(st.next()){
 				
 				modelo.addRow(new Object[]{
-						st.getString("CPF"),
-						st.getString("Nome"),
-						st.getDate("DataNascimento"),
+						st.getString("cpf"),
+						st.getString("nome"),
+						st.getDate("dataNascimento"),
 				});
 			}
 		}

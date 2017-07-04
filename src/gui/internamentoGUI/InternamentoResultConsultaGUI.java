@@ -30,16 +30,16 @@ public class InternamentoResultConsultaGUI extends JFrame {
 	
 	
 	private JTextField textFieldDataAlta;
-	private JTextField textFieldnumIntern;
+	private JTextField textFieldNumInternamento;
 
 	private void resultadoInternamento() {
-		String codPac = JOptionPane.showInputDialog(null, "Digite o CPF do paciente com apenas números:");
-		int numeroIntern = Integer
+		String cpf = JOptionPane.showInputDialog(null, "Digite o CPF do paciente com apenas números:");
+		int numInternamento = Integer
 				.parseInt(JOptionPane.showInputDialog(null, "Digite o número do internamento com apenas números:"));
 		
-		ic.BuscarDadosResultInternamento(codPac, numeroIntern, internamento);
-		textFieldCpf.setText(internamento.getCodPaciente());
-		textFieldnumIntern.setText(Integer.toString(internamento.getNumeroInternamento()));
+		ic.BuscarDadosResultInternamento(cpf, numInternamento, internamento);
+		textFieldCpf.setText(internamento.getCpf());
+		textFieldNumInternamento.setText(Integer.toString(internamento.getNumInternamento()));
 		textFieldDataBaixa.setText(internamento.getDataBaixa().toString());
 		textFieldDataAlta.setText(internamento.getDataAlta().toString());
 		textFieldNumLeito.setText(Integer.toString(internamento.getNumLeito()));
@@ -54,9 +54,9 @@ public class InternamentoResultConsultaGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblCod = new JLabel("CPF:");
-		lblCod.setBounds(10, 59, 46, 14);
-		contentPane.add(lblCod);
+		JLabel lblCpf = new JLabel("CPF:");
+		lblCpf.setBounds(10, 59, 46, 14);
+		contentPane.add(lblCpf);
 
 		JLabel lblDataBaixa = new JLabel("Data de baixa:");
 		lblDataBaixa.setBounds(222, 196, 176, 14);
@@ -79,16 +79,16 @@ public class InternamentoResultConsultaGUI extends JFrame {
 		textFieldDataAlta.setBounds(10, 211, 202, 20);
 		contentPane.add(textFieldDataAlta);
 
-		JLabel labelnumintern = new JLabel("N\u00FAmero do Internamento:");
-		labelnumintern.setBounds(222, 123, 160, 14);
-		contentPane.add(labelnumintern);
+		JLabel labelNumInternamento = new JLabel("N\u00FAmero do Internamento:");
+		labelNumInternamento.setBounds(222, 123, 160, 14);
+		contentPane.add(labelNumInternamento);
 
-		textFieldnumIntern = new JTextField();
-		textFieldnumIntern.setText("0");
-		textFieldnumIntern.setEditable(false);
-		textFieldnumIntern.setColumns(10);
-		textFieldnumIntern.setBounds(223, 139, 202, 20);
-		contentPane.add(textFieldnumIntern);
+		textFieldNumInternamento = new JTextField();
+		textFieldNumInternamento.setText("0");
+		textFieldNumInternamento.setEditable(false);
+		textFieldNumInternamento.setColumns(10);
+		textFieldNumInternamento.setBounds(223, 139, 202, 20);
+		contentPane.add(textFieldNumInternamento);
 
 		textFieldCpf = new JTextField();
 		textFieldCpf.setEditable(false);
@@ -115,14 +115,14 @@ public class InternamentoResultConsultaGUI extends JFrame {
 		btnVoltar.setBounds(283, 282, 115, 23);
 		contentPane.add(btnVoltar);
 
-		JButton btnEditar = new JButton("Editar");
+		final JButton btnEditar = new JButton("Editar");
 		btnEditar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textFieldDataAlta.setEditable(true);
 				textFieldDataBaixa.setEditable(true);
 				btnEditar.setVisible(false);
 
-				JLabel lblCamposNoEditaveis = new JLabel("Campos n\u00E3o edit\u00E1veis s\u00E3o chaves prim\u00E1rias e/ou estrangeiras.");
+				JLabel lblCamposNoEditaveis = new JLabel("Campos n\u00E3o edit\u00E1veis.");
 				lblCamposNoEditaveis.setForeground(Color.RED);
 				lblCamposNoEditaveis.setBounds(10, 242, 388, 14);
 				contentPane.add(lblCamposNoEditaveis);
@@ -130,7 +130,7 @@ public class InternamentoResultConsultaGUI extends JFrame {
 				JButton btnSubmeter = new JButton("Submeter");
 				btnSubmeter.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						ic.AtualizarDados(textFieldCpf.getText(), Integer.parseInt(textFieldnumIntern.getText()), 
+						ic.AtualizarDados(textFieldCpf.getText(), Integer.parseInt(textFieldNumInternamento.getText()), 
 								textFieldDataBaixa.getText(), textFieldDataAlta.getText(), 
 								Integer.parseInt(textFieldNumLeito.getText()));
 						InternamentoGUI ig = new InternamentoGUI();

@@ -15,14 +15,14 @@ import com.mysql.jdbc.Statement;
 import dominio.Leito;
 
 public class LeitoControl {
-	public void insereDados(int numeroLeito, int numeroQuarto, String tipoLeito) {
+	public void insereDados(int numLeito, int numQuarto, String tipoLeito) {
 		Conexao hospital = new Conexao();
 		try {
 
 			Connection ExConn = (Connection) hospital.abrirBDConn();
 			Statement stmt = (Statement) ExConn.createStatement();
-			String sSQL = "INSERT INTO hospital.leito VALUES ('" + numeroLeito
-					+ "','" + numeroQuarto + "','" + tipoLeito + "');";
+			String sSQL = "INSERT INTO hospital.leitos VALUES ('" + numLeito
+					+ "','" + numQuarto + "','" + tipoLeito + "');";
 			System.out.println(sSQL);
 			boolean res = stmt.execute(sSQL);
 
@@ -37,15 +37,15 @@ public class LeitoControl {
 		}
 	}
 
-	public void ExcluirLeito(int numeroLeito) {
+	public void ExcluirLeito(int numLeito) {
 		Conexao hospital = new Conexao();
 
 		try {
 
 			Connection ExConn = (Connection) hospital.abrirBDConn();
 			Statement stmt = (Statement) ExConn.createStatement();
-			String sSQL = "DELETE FROM hospital.leito WHERE numleito = "
-					+ numeroLeito + ";";
+			String sSQL = "DELETE FROM hospital.leitos WHERE numLeitos = "
+					+ numLeito + ";";
 			boolean rs = stmt.execute(sSQL);
 			JOptionPane
 					.showMessageDialog(
@@ -70,9 +70,9 @@ public class LeitoControl {
 			Connection ExConn = (Connection) hospital.abrirBDConn();
 			Statement stmt = (Statement) ExConn.createStatement();
 
-			res = stmt.executeUpdate("UPDATE hospital.leito SET numleito = '"
-					+ numLeito + "', numquarto = '" + numQuarto
-					+ "',tipoleito = '" + tipoLeito + "'WHERE numleito = "
+			res = stmt.executeUpdate("UPDATE hospital.leitos SET numLeito = '"
+					+ numLeito + "', numQuarto = '" + numQuarto
+					+ "',tipoLeito = '" + tipoLeito + "'WHERE numLeito = "
 					+ numLeito);
 			if (res == 1)
 				JOptionPane.showMessageDialog(null,
@@ -93,14 +93,14 @@ public class LeitoControl {
 
 			Connection ExConn = (Connection) hospital.abrirBDConn();
 			Statement stmt = (Statement) ExConn.createStatement();
-			String sSQL = "SELECT * FROM hospital.leito WHERE numleito = "
+			String sSQL = "SELECT * FROM hospital.leitos WHERE numLeito = "
 					+ numLeito;
 			ResultSet rs = stmt.executeQuery(sSQL);
 
 			while (rs.next()) {
-				leito.setNumLeito(rs.getInt("numleito"));
-				leito.setNumQuarto(rs.getInt("numquarto"));
-				leito.setTipoLeito(rs.getString("tipoleito"));
+				leito.setNumLeito(rs.getInt("numLeito"));
+				leito.setNumQuarto(rs.getInt("numQuarto"));
+				leito.setTipoLeito(rs.getString("tipoLeito"));
 			}
 
 			stmt.close();
@@ -121,13 +121,13 @@ public class LeitoControl {
 			
 			Statement statement = (Statement) conn
 					.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-			ResultSet st = statement.executeQuery("Select * from hospital.leitossistema");
+			ResultSet st = statement.executeQuery("Select * from hospital.leitos");
 			while(st.next()){
 				
 				modelo.addRow(new Object[]{
-						st.getInt("NumeroLeito"),
-						st.getInt("NumeroQuarto"),
-						st.getString("TipoLeito"),
+						st.getInt("numLeito"),
+						st.getInt("numQuarto"),
+						st.getString("tipoLeito"),
 				});
 			}
 		}

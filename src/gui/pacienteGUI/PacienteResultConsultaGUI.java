@@ -15,10 +15,11 @@ import javax.swing.border.EmptyBorder;
 import persistencia.PacienteControl;
 import dominio.Paciente;
 
+@SuppressWarnings("serial")
 public class PacienteResultConsultaGUI extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textFieldCodPaciente;
+	private JTextField textFieldCpf;
 	private JTextField textFieldNome;
 	private JTextField textFieldDataNasc;
 	PacienteControl pacienteControl = new PacienteControl();
@@ -48,11 +49,11 @@ public class PacienteResultConsultaGUI extends JFrame {
 		lblDataDeNascimento.setBounds(10, 124, 160, 14);
 		contentPane.add(lblDataDeNascimento);
 
-		textFieldCodPaciente = new JTextField();
-		textFieldCodPaciente.setEditable(false);
-		textFieldCodPaciente.setBounds(222, 139, 203, 20);
-		contentPane.add(textFieldCodPaciente);
-		textFieldCodPaciente.setColumns(10);
+		textFieldCpf = new JTextField();
+		textFieldCpf.setEditable(false);
+		textFieldCpf.setBounds(222, 139, 203, 20);
+		contentPane.add(textFieldCpf);
+		textFieldCpf.setColumns(10);
 
 		textFieldNome = new JTextField();
 		textFieldNome.setEditable(false);
@@ -79,7 +80,7 @@ public class PacienteResultConsultaGUI extends JFrame {
 		btnVoltar.setBounds(336, 216, 89, 23);
 		contentPane.add(btnVoltar);
 
-		JButton btnEditar = new JButton("Editar");
+		final JButton btnEditar = new JButton("Editar");
 		btnEditar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textFieldDataNasc.setEditable(true);
@@ -87,7 +88,7 @@ public class PacienteResultConsultaGUI extends JFrame {
 				btnEditar.setVisible(false);
 
 				JLabel lblCamposNoEditaveis = new JLabel(
-						"Campos n\u00E3o edit\u00E1veis s\u00E3o chaves prim\u00E1rias e/ou estrangeiras.");
+						"Campos n\u00E3o edit\u00E1veis s\u00E3o.");
 				lblCamposNoEditaveis.setForeground(Color.RED);
 				lblCamposNoEditaveis.setBounds(10, 170, 362, 14);
 				contentPane.add(lblCamposNoEditaveis);
@@ -95,7 +96,7 @@ public class PacienteResultConsultaGUI extends JFrame {
 				JButton btnSubmeter = new JButton("Submeter");
 				btnSubmeter.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						pc.AtualizarDados(textFieldCodPaciente.getText(),
+						pc.AtualizarDados(textFieldCpf.getText(),
 								textFieldNome.getText(),
 								textFieldDataNasc.getText());
 						PacienteGUI pg = new PacienteGUI();
@@ -113,11 +114,11 @@ public class PacienteResultConsultaGUI extends JFrame {
 	}
 
 	private void resultadoConsulta() {
-		String codPac = JOptionPane.showInputDialog(null,
+		String cpf = JOptionPane.showInputDialog(null,
 				"Digite o CPF do paciente");
-		pc.BuscarDados(codPac, paciente);
-		textFieldCodPaciente.setText(paciente.getCodPac());
+		pc.BuscarDados(cpf, paciente);
+		textFieldCpf.setText(paciente.getCpf());
 		textFieldDataNasc.setText(paciente.getDataNascimento().toString());
-		textFieldNome.setText(paciente.getNomePac());
+		textFieldNome.setText(paciente.getNome());
 	}
 }

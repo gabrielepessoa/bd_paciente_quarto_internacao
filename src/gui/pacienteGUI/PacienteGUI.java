@@ -14,6 +14,7 @@ import javax.swing.border.EmptyBorder;
 import persistencia.PacienteControl;
 import dominio.Paciente;
 
+@SuppressWarnings("serial")
 public class PacienteGUI extends JFrame {
 
 	private JPanel contentPane;

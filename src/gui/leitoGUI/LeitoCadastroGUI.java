@@ -37,11 +37,11 @@ public class LeitoCadastroGUI extends JFrame {
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int numeroLeito = Integer.parseInt(textFieldNumLeito.getText());
-				int numeroQuarto = Integer.parseInt(textFieldNumQuarto
+				int numLeito = Integer.parseInt(textFieldNumLeito.getText());
+				int numQuarto = Integer.parseInt(textFieldNumQuarto
 						.getText());
 				String tipoLeito = textFieldTipoLeito.getText();
-				leitoControl.insereDados(numeroLeito, numeroQuarto, tipoLeito);
+				leitoControl.insereDados(numLeito, numQuarto, tipoLeito);
 				LeitoGUI lg = new LeitoGUI();
 				lg.setVisible(true);
 				dispose();

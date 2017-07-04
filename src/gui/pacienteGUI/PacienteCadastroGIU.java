@@ -16,6 +16,7 @@ import javax.swing.text.MaskFormatter;
 
 import persistencia.PacienteControl;
 
+@SuppressWarnings("serial")
 public class PacienteCadastroGIU extends JFrame {
 
 	private JPanel contentPane;
@@ -36,16 +37,16 @@ public class PacienteCadastroGIU extends JFrame {
 		lblNome.setBounds(10, 59, 46, 14);
 		contentPane.add(lblNome);
 
-		JLabel lblCodigoPaciente = new JLabel("Codigo Paciente (CPF):");
-		lblCodigoPaciente.setBounds(230, 124, 177, 14);
-		contentPane.add(lblCodigoPaciente);
+		JLabel lblCpfPaciente = new JLabel("CPF do Paciente:");
+		lblCpfPaciente.setBounds(230, 124, 177, 14);
+		contentPane.add(lblCpfPaciente);
 
-		JLabel lblDataDeNascimento = new JLabel("Data de nascimento:");
-		lblDataDeNascimento.setBounds(10, 124, 163, 14);
-		contentPane.add(lblDataDeNascimento);
+		JLabel lblDataNascimento = new JLabel("Data de nascimento:");
+		lblDataNascimento.setBounds(10, 124, 163, 14);
+		contentPane.add(lblDataNascimento);
 
-		JFormattedTextField textFieldCodPaciente = cpfMascara();
-		JFormattedTextField textFieldDataNasc = dataNascMascara();
+		final JFormattedTextField textFieldCpfPaciente = cpfMascara();
+		final JFormattedTextField textFieldDataNasc = dataNascMascara();
 
 		textFieldNome = new JTextField();
 		textFieldNome.setBounds(10, 74, 423, 20);
@@ -56,10 +57,10 @@ public class PacienteCadastroGIU extends JFrame {
 		btnCadastrar.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				String codPac = textFieldCodPaciente.getText();
-				String dataNasc = textFieldDataNasc.getText();
+				String cpf = textFieldCpfPaciente.getText();
+				String dataNascimento = textFieldDataNasc.getText();
 				String nome = textFieldNome.getText();
-				pacienteControl.insereDados(codPac, nome, dataNasc);
+				pacienteControl.insereDados(cpf, nome, dataNascimento);
 
 				PacienteGUI p = new PacienteGUI();
 				p.setVisible(true);
@@ -83,7 +84,7 @@ public class PacienteCadastroGIU extends JFrame {
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				textFieldCodPaciente.setText("");
+				textFieldCpfPaciente.setText("");
 				textFieldDataNasc.setText("");
 				textFieldNome.setText("");
 			}
@@ -95,18 +96,18 @@ public class PacienteCadastroGIU extends JFrame {
 	private JFormattedTextField cpfMascara() {
 		MaskFormatter mascaraCpf = null;
 		try {
-			mascaraCpf = new MaskFormatter("###########");
+			mascaraCpf = new MaskFormatter("###.###.###-##");
 			mascaraCpf.setPlaceholderCharacter('_');
 
 		} catch (ParseException e1) {
 			JOptionPane.showMessageDialog(null,
 					"Digite um CPF válido!" + e1.getMessage(), "ERROR", 0);
 		}
-		JFormattedTextField textFieldCodPaciente = new JFormattedTextField(
+		JFormattedTextField textFieldCpfPaciente = new JFormattedTextField(
 				mascaraCpf);
-		textFieldCodPaciente.setBounds(230, 139, 203, 20);
-		contentPane.add(textFieldCodPaciente);
-		return textFieldCodPaciente;
+		textFieldCpfPaciente.setBounds(230, 139, 203, 20);
+		contentPane.add(textFieldCpfPaciente);
+		return textFieldCpfPaciente;
 	}
 
 	private JFormattedTextField dataNascMascara() {
@@ -119,10 +120,10 @@ public class PacienteCadastroGIU extends JFrame {
 			JOptionPane.showMessageDialog(null,
 					"Digite uma data válido!" + e1.getMessage(), "ERROR", 0);
 		}
-		JFormattedTextField textFieldDataNasc = new JFormattedTextField(
+		JFormattedTextField textFieldDataNascimento = new JFormattedTextField(
 				mascaraData);
-		textFieldDataNasc.setBounds(10, 139, 163, 20);
-		contentPane.add(textFieldDataNasc);
-		return textFieldDataNasc;
+		textFieldDataNascimento.setBounds(10, 139, 163, 20);
+		contentPane.add(textFieldDataNascimento);
+		return textFieldDataNascimento;
 	}
 }

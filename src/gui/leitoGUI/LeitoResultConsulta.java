@@ -45,13 +45,13 @@ public class LeitoResultConsulta extends JFrame {
 		contentPane.add(textFieldNumLeito);
 		textFieldNumLeito.setColumns(10);
 
-		JLabel lblNumeroDeLeito = new JLabel("Numero de Leito:");
-		lblNumeroDeLeito.setBounds(45, 59, 97, 14);
-		contentPane.add(lblNumeroDeLeito);
+		JLabel lblNumLeito = new JLabel("Numero de Leito:");
+		lblNumLeito.setBounds(45, 59, 97, 14);
+		contentPane.add(lblNumLeito);
 
-		JLabel lblNumeroDo = new JLabel("Numero de Quarto:");
-		lblNumeroDo.setBounds(259, 60, 115, 14);
-		contentPane.add(lblNumeroDo);
+		JLabel lblNumQuarto = new JLabel("Numero de Quarto:");
+		lblNumQuarto.setBounds(259, 60, 115, 14);
+		contentPane.add(lblNumQuarto);
 
 		textFieldNumQuarto = new JTextField();
 		textFieldNumQuarto.setEditable(false);
@@ -59,9 +59,9 @@ public class LeitoResultConsulta extends JFrame {
 		contentPane.add(textFieldNumQuarto);
 		textFieldNumQuarto.setColumns(10);
 
-		JLabel lblTipoDeLeito = new JLabel("Tipo de Leito:");
-		lblTipoDeLeito.setBounds(45, 115, 115, 14);
-		contentPane.add(lblTipoDeLeito);
+		JLabel lblTipoLeito = new JLabel("Tipo de Leito:");
+		lblTipoLeito.setBounds(45, 115, 115, 14);
+		contentPane.add(lblTipoLeito);
 
 		textFieldTipoLeito = new JTextField();
 		textFieldTipoLeito.setEditable(false);
@@ -71,7 +71,7 @@ public class LeitoResultConsulta extends JFrame {
 
 		resultadoConsulta();
 
-		JButton btnEditar = new JButton("Editar");
+		final JButton btnEditar = new JButton("Editar");
 		btnEditar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textFieldNumQuarto.setEditable(true);
@@ -79,7 +79,7 @@ public class LeitoResultConsulta extends JFrame {
 				btnEditar.setVisible(false);
 
 				JLabel lblCamposNoEditaveis = new JLabel(
-						"Campos n\u00E3o edit\u00E1veis s\u00E3o chaves prim\u00E1rias e/ou estrangeiras.");
+						"Campos n\u00E3o edit\u00E1veis.");
 				lblCamposNoEditaveis.setForeground(Color.RED);
 				lblCamposNoEditaveis.setBounds(45, 159, 408, 14);
 				contentPane.add(lblCamposNoEditaveis);
@@ -104,22 +104,22 @@ public class LeitoResultConsulta extends JFrame {
 		btnEditar.setBounds(184, 216, 100, 23);
 		contentPane.add(btnEditar);
 
-		JButton button_1 = new JButton("Voltar");
-		button_1.addActionListener(new ActionListener() {
+		JButton btn_voltar = new JButton("Voltar");
+		btn_voltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				LeitoGUI lg = new LeitoGUI();
 				lg.setVisible(true);
 				dispose();
 			}
 		});
-		button_1.setBounds(298, 216, 89, 23);
-		contentPane.add(button_1);
+		btn_voltar.setBounds(298, 216, 89, 23);
+		contentPane.add(btn_voltar);
 		
 	}
 
 	private void resultadoConsulta() {
 		int numLeito = Integer.parseInt(JOptionPane.showInputDialog(null,
-				"Digite o numero do leito"));
+				"Digite o número do leito"));
 		leitoControl.BuscarDados(numLeito, leito);
 		textFieldNumLeito.setText(Integer.toString(leito.getNumLeito()));
 		textFieldNumQuarto.setText(Integer.toString(leito.getNumQuarto()));

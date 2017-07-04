@@ -17,14 +17,14 @@ import dominio.Internamento;
 public class InternamentoControl {
 	Internamento internamento = new Internamento();
 
-	public void insereDados(String codPac, int numeroIntern, String dataAlta, String dataBaixa, int numeroLeito) {
+	public void insereDados(String cpf, int numInternamento, String dataAlta, String dataBaixa, int numLeito) {
 		Conexao hospital = new Conexao();
 		try {
 
 			Connection ExConn = (Connection) hospital.abrirBDConn();
 			Statement stmt = (Statement) ExConn.createStatement();
-			String sSQL = "INSERT INTO hospital.internamento VALUES ('" + codPac + "','" + numeroIntern + "','"
-					+ dataAlta + "','" + dataBaixa + "','" + numeroLeito + "');";
+			String sSQL = "INSERT INTO hospital.internamentos VALUES ('" + cpf + "','" + numInternamento + "','"
+					+ dataAlta + "','" + dataBaixa + "','" + numLeito + "');";
 			System.out.println(sSQL);
 			boolean res = stmt.execute(sSQL);
 
@@ -47,12 +47,12 @@ public class InternamentoControl {
 
 			Statement statement = (Statement) conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
 					ResultSet.CONCUR_READ_ONLY);
-			ResultSet st = statement.executeQuery("Select * from hospital.internadossistema");
+			ResultSet st = statement.executeQuery("Select * from hospital.internamentos");
 			while (st.next()) {
 
 				modelo.addRow(
-						new Object[] {st.getString("CPF"), st.getInt("NumeroInternamento"),
-								st.getString("DataBaixa"), st.getString("DataAlta"), st.getString("NumeroLeito") });
+						new Object[] {st.getString("cpf"), st.getInt("numInternamento"),
+								st.getString("dataBaixa"), st.getString("dataAlta"), st.getString("numLeito") });
 			}
 		} catch (Exception erro) {
 			JOptionPane.showMessageDialog(null, "Erro ao adicionar na tabela" + erro, "Erro no sistema",
@@ -60,14 +60,14 @@ public class InternamentoControl {
 		}
 	}
 
-	public void ExcluirInternamento(String codPac, int numeroIntern) {
+	public void ExcluirInternamento(String cpf, int numInternamento) {
 		Conexao hospital = new Conexao();
 
 		try {
 
 			Connection ExConn = (Connection) hospital.abrirBDConn();
 			Statement stmt = (Statement) ExConn.createStatement();
-			String sSQL = "DELETE FROM hospital.internamento WHERE codpac = "+ codPac + " and numerointern = " + numeroIntern+";";
+			String sSQL = "DELETE FROM hospital.internamentos WHERE cpf = "+ cpf + " and numInternamento = " + numInternamento +";";
 			boolean rs = stmt.execute(sSQL);
 			JOptionPane.showMessageDialog(null,(!rs) ? "Dados do internamento excluidos com sucesso.": 
 				"Dados do internamento não foram excluidos com sucesso.");
@@ -80,19 +80,19 @@ public class InternamentoControl {
 		}
 	}
 	
-	public void BuscarDadosResultInternamento(String codPac, int numeroIntern, Internamento internamento) {
+	public void BuscarDadosResultInternamento(String cpf, int numInternamento, Internamento internamento) {
 		Conexao hospital = new Conexao();
 		try {
 			Connection ExConn = (Connection) hospital.abrirBDConn();
 			Statement stmt = (Statement) ExConn.createStatement();
-			String sSQL = "SELECT codpac, numerointern, databaixa, dataalta, numleito FROM hospital.internamento WHERE codpac = "+ codPac + " and numerointern = " + numeroIntern+";";
+			String sSQL = "SELECT cpf, numInternamento, dataBaixa, dataAlta, numLeito FROM hospital.internamentos WHERE cpf = "+ cpf + " and numInternamento = " + numInternamento+";";
 			ResultSet rs = stmt.executeQuery(sSQL);
 			while (rs.next()) {
-				internamento.setCodPaciente(rs.getString("codpac"));
-				internamento.setNumeroInternamento(rs.getInt("numerointern"));
-				internamento.setDataBaixa(rs.getDate("databaixa"));
-				internamento.setDataAlta(rs.getDate("dataalta"));
-				internamento.setNumLeito(rs.getInt("numleito"));
+				internamento.setCpf(rs.getString("cpf"));
+				internamento.setNumInternamento(rs.getInt("numInternamento"));
+				internamento.setDataBaixa(rs.getDate("dataBaixa"));
+				internamento.setDataAlta(rs.getDate("dataAlta"));
+				internamento.setNumLeito(rs.getInt("numLeito"));
 			}
 			stmt.close();
 			hospital.fecharBDConn();
@@ -101,7 +101,7 @@ public class InternamentoControl {
 		}
 	}
 	
-	public String AtualizarDados(String codPac, int numeroIntern, String dataBaixa, String dataAlta, int numLeito) {
+	public String AtualizarDados(String cpf, int numInternamento, String dataBaixa, String dataAlta, int numLeito) {
 		Conexao hospital = new Conexao();
 		String retorno = "erro";
 		int res;
@@ -110,10 +110,10 @@ public class InternamentoControl {
 			Connection ExConn = (Connection) hospital.abrirBDConn();
 			Statement stmt = (Statement) ExConn.createStatement();
 
-			res = stmt.executeUpdate("UPDATE hospital.internamento SET codpac = '"
-					+ codPac + "', numerointern = '" + numeroIntern + "',databaixa = '"
-					+ dataBaixa + "', dataalta = '"+ dataAlta + "', numleito = '"+ numLeito +
-					"'WHERE codpac = "+ codPac + " and numerointern = " + numeroIntern+";");
+			res = stmt.executeUpdate("UPDATE hospital.internamentos SET cpf = '"
+					+ cpf + "', numInternamento = '" + numInternamento + "', dataBaixa = '"
+					+ dataBaixa + "', dataAlta = '"+ dataAlta + "', numLeito = '"+ numLeito +
+					"'WHERE cpf = "+ cpf + " and numInternamento = " + numInternamento+";");
 			
 			if (res == 1)
 				JOptionPane.showMessageDialog(null,
