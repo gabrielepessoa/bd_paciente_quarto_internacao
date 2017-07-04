@@ -1,1 +1,0 @@
-# bd_paciente_quarto_internacao
